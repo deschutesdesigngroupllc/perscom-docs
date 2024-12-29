@@ -43,22 +43,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -322,22 +306,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -471,22 +439,6 @@
             "name": "announcement",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -1592,22 +1544,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -1760,22 +1696,6 @@
             "name": "assignment_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -3001,22 +2921,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "model"
@@ -3157,22 +3061,6 @@
             "name": "attachment",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -4326,22 +4214,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -4482,22 +4354,6 @@
             "name": "award",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -5664,22 +5520,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -6293,22 +6133,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -6458,22 +6282,6 @@
             "name": "award_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -7798,22 +7606,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "events",
@@ -7956,22 +7748,6 @@
             "name": "calendar",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -9141,22 +8917,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "awards",
@@ -9301,22 +9061,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -10510,22 +10254,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -10674,22 +10402,6 @@
             "name": "award",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -12847,22 +12559,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -13011,22 +12707,6 @@
             "name": "document",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -15187,22 +14867,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "fields",
@@ -15354,22 +15018,6 @@
             "name": "form",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -17560,22 +17208,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -17724,22 +17356,6 @@
             "name": "qualification",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -19897,22 +19513,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -20061,22 +19661,6 @@
             "name": "rank",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -22225,22 +21809,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -22388,22 +21956,6 @@
             "name": "combat_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -23600,22 +23152,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "author",
@@ -23757,22 +23293,6 @@
             "name": "comment",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -24932,22 +24452,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "author"
@@ -25088,22 +24592,6 @@
             "name": "document",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -26257,22 +25745,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -26413,22 +25885,6 @@
             "name": "event",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -27639,22 +27095,6 @@
             "name": "event",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -27796,22 +27236,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -29264,22 +28688,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "fields",
@@ -29423,22 +28831,6 @@
             "name": "form",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -30629,22 +30021,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "form",
@@ -30796,22 +30172,6 @@
             "name": "submission",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -32367,22 +31727,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image",
@@ -32525,22 +31869,6 @@
             "name": "group",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -33719,22 +33047,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -34339,22 +33651,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "model"
@@ -34495,22 +33791,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -35664,22 +34944,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "schedule"
@@ -35820,22 +35084,6 @@
             "name": "message",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -36974,22 +36222,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -37906,22 +37138,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -38064,22 +37280,6 @@
             "name": "position",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -39245,22 +38445,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -39401,22 +38585,6 @@
             "name": "qualification",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -40583,22 +39751,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -41212,22 +40364,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -41377,22 +40513,6 @@
             "name": "qualification_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -42600,22 +41720,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -42756,22 +41860,6 @@
             "name": "rank",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -43938,22 +43026,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -44567,22 +43639,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -44732,22 +43788,6 @@
             "name": "rank_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -45807,22 +44847,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image",
@@ -45973,22 +44997,6 @@
             "name": "roster",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -46297,22 +45305,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -46460,22 +45452,6 @@
             "name": "service_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -47798,22 +46774,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -47956,22 +46916,6 @@
             "name": "specialty",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -49124,22 +48068,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -49273,22 +48201,6 @@
             "name": "status",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -50455,22 +49367,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "comments",
@@ -50618,22 +49514,6 @@
             "name": "submission",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -51845,22 +50725,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "record"
@@ -52009,22 +50873,6 @@
             "name": "status",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -54168,22 +53016,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -54326,22 +53158,6 @@
             "name": "task",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -55513,22 +54329,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -55675,22 +54475,6 @@
             "name": "unit",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -56893,22 +55677,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -57538,22 +56306,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -57719,22 +56471,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -59064,22 +57800,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -59238,22 +57958,6 @@
             "name": "assignment_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -60886,22 +59590,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -61057,22 +59745,6 @@
             "name": "award_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -62679,22 +61351,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -62848,22 +61504,6 @@
             "name": "combat_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -64456,22 +63096,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -64627,22 +63251,6 @@
             "name": "qualification_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -66251,22 +64859,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -66422,22 +65014,6 @@
             "name": "rank_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -68044,22 +66620,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -68213,22 +66773,6 @@
             "name": "service_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -69663,22 +68207,6 @@
             "name": "position",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -70505,22 +69033,6 @@
             "name": "rank",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -71397,22 +69909,6 @@
             "name": "specialty",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -72239,22 +70735,6 @@
             "name": "unit",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -73131,22 +71611,6 @@
             "name": "status",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -74111,22 +72575,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -74268,22 +72716,6 @@
             "name": "attachment",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -76318,22 +74750,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -76475,22 +74891,6 @@
             "name": "field",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -78538,22 +76938,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "record"
@@ -78702,22 +77086,6 @@
             "name": "status_record",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -80876,22 +79244,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment",
@@ -81041,22 +79393,6 @@
             "name": "task",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "with_trashed",
-            "description": "Include deleted resources.",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "only_trashed",
-            "description": "Only return deleted resources.",
-            "in": "query"
           },
           {
             "schema": {
@@ -84812,12 +83148,6 @@
             "type": "string",
             "description": "The date the resource was updated. Stored in UTC.",
             "format": "date-time"
-          },
-          "deleted_at": {
-            "type": "string",
-            "description": "The date the resource was deleted. Stored in UTC.",
-            "format":  "date-time",
-            "nullable": true
           }
         }
       },
