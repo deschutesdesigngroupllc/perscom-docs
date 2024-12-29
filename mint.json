@@ -123,7 +123,6 @@
               "pages": [
                 "api-reference/endpoints/announcements/get-a-list-of-announcements",
                 "api-reference/endpoints/announcements/create-announcement",
-                "api-reference/endpoints/announcements/search-for-announcements",
                 "api-reference/endpoints/announcements/get-announcement",
                 "api-reference/endpoints/announcements/delete-announcement",
                 "api-reference/endpoints/announcements/update-announcement",
@@ -346,7 +345,6 @@
                   "pages": [
                     "api-reference/endpoints/events-image/get-a-list-of-images",
                     "api-reference/endpoints/events-image/create-image",
-                    "api-reference/endpoints/events-image/search-for-images",
                     "api-reference/endpoints/events-image/get-image",
                     "api-reference/endpoints/events-image/delete-image",
                     "api-reference/endpoints/events-image/update-image",
