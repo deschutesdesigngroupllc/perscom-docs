@@ -1,0 +1,22 @@
+name: Deploy Docs
+
+on:
+  workflow_dispatch:
+  push:
+    - master
+
+jobs:
+  cache:
+    name: Clear Cache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Clear Fastly Cache
+        uses: yukukotani/fastly-purge-action@v1
+        with:
+          api-token: ${{ secrets.FASTLY_API_KEY }}
+          service-id: ${{ secrets.FASTLY_SERVICE_ID }}
+          target: surrogate-key
+          keys: api:specs
+          soft: false
