@@ -3,7 +3,8 @@ name: Deploy Docs
 on:
   workflow_dispatch:
   push:
-    - master
+    branches:
+      - master
 
 jobs:
   cache:
