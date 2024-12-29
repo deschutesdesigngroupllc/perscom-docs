@@ -737,14 +737,6 @@
             "name": "announcement",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -1206,14 +1198,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -2041,14 +2025,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -2573,14 +2549,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -3382,14 +3350,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "model"
@@ -3878,14 +3838,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -4675,14 +4627,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -5171,14 +5115,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -5834,14 +5770,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -6621,14 +6549,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -7144,14 +7064,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -8073,14 +7985,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "events",
@@ -8575,14 +8479,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -9390,14 +9286,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "awards",
@@ -9898,14 +9786,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -10739,14 +10619,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -11259,14 +11131,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -13044,14 +12908,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -13564,14 +13420,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -15361,14 +15209,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "fields",
@@ -15890,14 +15730,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -17693,14 +17525,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -18213,14 +18037,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -19998,14 +19814,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -20518,14 +20326,6 @@
             "name": "category",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -22291,14 +22091,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -22808,14 +22600,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -23616,14 +23400,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "author",
@@ -24115,14 +23891,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -24913,14 +24681,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "author"
@@ -25409,14 +25169,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -26224,14 +25976,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -26747,14 +26491,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -27550,14 +27286,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -28043,14 +27771,6 @@
             "name": "event",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -29158,14 +28878,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "fields",
@@ -29663,14 +29375,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -30515,14 +30219,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "form",
@@ -31044,14 +30740,6 @@
             "name": "form",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -32194,14 +31882,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image",
@@ -32696,14 +32376,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -33361,14 +33033,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -34112,14 +33776,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "model"
@@ -34608,14 +34264,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -35405,14 +35053,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "schedule"
@@ -35901,14 +35541,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -37605,14 +37237,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -38107,14 +37731,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -38906,14 +38522,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -39402,14 +39010,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -40065,14 +39665,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -40852,14 +40444,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -41375,14 +40959,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -42181,14 +41757,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -42677,14 +42245,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -43340,14 +42900,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -44127,14 +43679,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -44650,14 +44194,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -45787,14 +45323,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -46304,14 +45832,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -47241,14 +46761,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -47743,14 +47255,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -48524,14 +48028,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "submissions",
@@ -49023,14 +48519,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -49849,14 +49337,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "comments",
@@ -50366,14 +49846,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -51210,14 +50682,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "record"
@@ -51730,14 +51194,6 @@
             "name": "submission",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -53483,14 +52939,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -53985,14 +53433,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -54808,14 +54248,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -55322,14 +54754,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -55991,14 +55415,6 @@
             "name": "image",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -56842,14 +56258,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment_records",
@@ -57413,14 +56821,6 @@
             "in": "path",
             "required": true,
             "description": "The API version to use."
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -58315,14 +57715,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -58865,14 +58257,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -60096,14 +59480,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -60637,14 +60013,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -61851,14 +61219,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -62386,14 +61746,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -63602,14 +62954,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -64143,14 +63487,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -65365,14 +64701,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -65906,14 +65234,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -67120,14 +66440,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "attachments",
@@ -67655,14 +66967,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -68521,14 +67825,6 @@
             "name": "position",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -68842,14 +68138,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -69370,14 +68658,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -69708,14 +68988,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -70223,14 +69495,6 @@
             "name": "specialty",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -70544,14 +69808,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -71072,14 +70328,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "image"
@@ -71410,14 +70658,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -71925,14 +71165,6 @@
             "name": "status",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -72246,14 +71478,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -73030,14 +72254,6 @@
             "name": "attachment",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -73523,14 +72739,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -75205,14 +74413,6 @@
             "name": "field",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "responses": {
@@ -75698,14 +74898,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           }
         ],
         "requestBody": {
@@ -77423,14 +76615,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "record"
@@ -77943,14 +77127,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
@@ -79732,14 +78908,6 @@
           },
           {
             "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "string",
               "enum": [
                 "assignment",
@@ -80255,14 +79423,6 @@
             "name": "user",
             "in": "path",
             "required": true
-          },
-          {
-            "schema": {
-              "type": "boolean"
-            },
-            "name": "force",
-            "description": "Force delete the resource rather than just marking the resource deleted. This cannot be undone.",
-            "in": "query"
           },
           {
             "schema": {
