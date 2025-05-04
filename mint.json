@@ -98,7 +98,13 @@
           ]
         },
         "integrations/webhooks",
-        "integrations/widgets"
+        "integrations/widgets",
+        {
+          "group": "Third Party",
+          "pages": [
+            "integrations/third-party/discord"
+          ]
+        }
       ]
     },
     {
