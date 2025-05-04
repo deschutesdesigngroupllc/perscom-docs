@@ -1,33 +1,17 @@
 ---
-title: 'Widgets'
-description: 'Bring PERSCOM back to your own website.'
+title: "Widgets"
+description: "Integrate PERSCOM into any website."
 ---
 
-<Note>Widgets require the **Pro** subscription.</Note>
-
-PERSCOM.io offers powerful widgets that allow the integration of your organizational data into another website for display. Each widget is a
-snippet of HTML that can be injected into your website.
+PERSCOM.io offers powerful widgets that allow the integration of your organizational data into another website for display. Each widget is a snippet of HTML that can be injected into your website.
 
 ## Demo
 
-If you'd like to try the widgets out before using them on your website, you can preview every widget at
-[https://widget.perscom.io](https://widget.perscom.io). Please note, you must be subscribed to the **Pro** plan to use this feature. Please
-have an API key ready to log in.
-
-<Steps>
-  <Step title='Create An API Key'>
-    Visit your PERSCOM dashboard and head to the API Key section. Create an API key with access to every scope.
-  </Step>
-  <Step title='Visit Widget Website'>Visit the widget website [https://widget.perscom.io](https://widget.perscom.io).</Step>
-  <Step title='Enter Your API Key'>
-    Enter your API key and click a widget to start browsing. Use your back button to get back to the home screen.
-  </Step>
-</Steps>
+If you'd like to try the widgets out before using them on your website, you can preview every widget from within your own PERSCOM dashboard. Visit the **Widgets** section under **Integrations** section for more information.
 
 ## Installation
 
-To start using the PERSCOM widget, copy and paste the following HTML snippet into your website. Make sure to **replace** `APIKEY` with your
-own API key. Replace the [widget ID](#available-widgets) with ID you'd like to display.
+To start using the PERSCOM widget, copy and paste the following HTML snippet into your website. Make sure to **replace** `APIKEY` with your own API key. Replace the [widget ID](#available-widgets) with ID you'd like to display.
 
 <CodeGroup>
 
@@ -43,6 +27,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
 </div>
 ```
 
+
 ```html Awards {4-5}
 <div id="perscom_widget_wrapper">
     <script
@@ -54,6 +39,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
     ></script>
 </div>
 ```
+
 
 ```html Calendar {4-5}
 <div id="perscom_widget_wrapper">
@@ -67,6 +53,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
 </div>
 ```
 
+
 ```html Forms {4-5}
 <div id="perscom_widget_wrapper">
     <script
@@ -78,6 +65,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
     ></script>
 </div>
 ```
+
 
 ```html Newsfeed {4-5}
 <div id="perscom_widget_wrapper">
@@ -91,6 +79,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
 </div>
 ```
 
+
 ```html Qualifications {4-5}
 <div id="perscom_widget_wrapper">
     <script
@@ -102,6 +91,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
     ></script>
 </div>
 ```
+
 
 ```html Ranks {4-5}
 <div id="perscom_widget_wrapper">
@@ -118,8 +108,7 @@ own API key. Replace the [widget ID](#available-widgets) with ID you'd like to d
 </CodeGroup>
 
 <Note>
-  To avoid leaking sensitive data, it is recommended to create an API key with only `view` permissions. Your API key will be publicly
-  accessible.
+  To avoid leaking sensitive data, it is recommended to create an API key with only `view` permissions. Your API key will be publicly accessible.
 </Note>
 
 ## Available Widgets
@@ -130,6 +119,7 @@ The following widgets are currently available. Each widget is identified by a wi
 2. Awards `data-widget='awards'`
 3. Calendar `data-widget='calendar'`
 4. Forms `data-widget='forms'`
-5. Newsfeed `data-widget='newsfeed'`
+5. Positions `data-widget='positions'`
 6. Qualifications `data-widget='qualifications'`
-7. Ranks `data-widget='ranks'`
+7. Specialties `data-widget='specialties'`
+8. Ranks `data-widget='ranks'`
