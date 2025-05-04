@@ -29539,6 +29539,2165 @@
         ]
       }
     },
+    "/{version}/forms/{form}/fields": {
+      "post": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Field"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/FieldResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create field",
+        "tags": [
+          "Forms Fields"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FieldResource"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/ResourceLinks"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/ResourceMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a list of fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/{field}": {
+      "get": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "field",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/FieldResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get field",
+        "tags": [
+          "Forms Fields"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "field",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Field"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/FieldResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update field",
+        "tags": [
+          "Forms Fields"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "field",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/FieldResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Delete field",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/batch": {
+      "post": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Field"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FieldResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a batch of fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "object",
+                    "properties": {
+                      "{key}": {
+                        "$ref": "#/components/schemas/Field"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FieldResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update a batch of fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "description": "A list of resource IDs"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FieldResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Delete a batch of fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/attach": {
+      "post": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "description": "A key-value pairs, where keys are relation resource IDs and values are objects representing pivot fields"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Attach fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/detach": {
+      "delete": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "description": "A key-value pairs, where keys are relation resource IDs and values are objects representing pivot fields"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Detach fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/sync": {
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "description": "A key-value pairs, where keys are relation resource IDs and values are objects representing pivot fields"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "detached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "updated": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Sync fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/toggle": {
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "description": "A key-value pairs, where keys are relation resource IDs and values are objects representing pivot fields"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "attached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "detached": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Toggle fields",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
+    "/{version}/forms/{form}/fields/{field}/pivot": {
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "form",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "field",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pivot": {
+                    "type": "object",
+                    "description": "Pivot fields"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update pivot",
+        "tags": [
+          "Forms Fields"
+        ]
+      }
+    },
     "/{version}/forms/{form}/submissions": {
       "post": {
         "parameters": [
@@ -45881,6 +48040,1395 @@
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/ServiceRecordResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Delete a batch of service records",
+        "tags": [
+          "Service Records"
+        ]
+      }
+    },
+    "/{version}/training-records": {
+      "post": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrainingRecord"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/TrainingRecordResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create training record",
+        "tags": [
+          "Training Records"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TrainingRecordResource"
+                      }
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/ResourceLinks"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/ResourceMeta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a list of training records",
+        "tags": [
+          "Training Records"
+        ]
+      }
+    },
+    "/{version}/training-records/{training_record}": {
+      "get": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "training_record",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/TrainingRecordResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get training record",
+        "tags": [
+          "Training Records"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "training_record",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TrainingRecord"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/TrainingRecordResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update training record",
+        "tags": [
+          "Training Records"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "training_record",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/TrainingRecordResource"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Delete training record",
+        "tags": [
+          "Training Records"
+        ]
+      }
+    },
+    "/{version}/training-records/batch": {
+      "post": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/TrainingRecord"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TrainingRecordResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a batch of training records",
+        "tags": [
+          "Training Records"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "object",
+                    "properties": {
+                      "{key}": {
+                        "$ref": "#/components/schemas/TrainingRecord"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TrainingRecordResource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/422Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/401Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/402Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/403Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/404Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/429Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/503Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update a batch of training records",
+        "tags": [
+          "Training Records"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "v1",
+                "v2"
+              ],
+              "default": "v2"
+            },
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "description": "The API version to use."
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "attachments",
+                "author",
+                "author.*",
+                "comments",
+                "comments.*",
+                "competencies",
+                "credentials",
+                "credentials.*",
+                "document",
+                "event",
+                "event.*",
+                "instructor",
+                "instructor.*",
+                "user",
+                "user.*"
+              ]
+            },
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resources": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "description": "A list of resource IDs"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TrainingRecordResource"
                       }
                     }
                   }
@@ -80550,7 +84098,10 @@
       "User": {
         "title": "User",
         "type": "object",
-        "required": ["name", "email"],
+        "required": [
+          "name",
+          "email"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -80679,7 +84230,11 @@
       "Announcement": {
         "title": "Announcement",
         "type": "object",
-        "required": ["title", "content", "color"],
+        "required": [
+          "title",
+          "content",
+          "color"
+        ],
         "properties": {
           "title": {
             "type": "string"
@@ -80732,7 +84287,9 @@
       "AssignmentRecord": {
         "title": "AssignmentRecord",
         "type": "object",
-        "required": ["user_id"],
+        "required": [
+          "user_id"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -80763,7 +84320,10 @@
           },
           "type": {
             "type": "string",
-            "enum": ["primary", "secondary"]
+            "enum": [
+              "primary",
+              "secondary"
+            ]
           },
           "text": {
             "type": "string",
@@ -80797,7 +84357,10 @@
       "Attachment": {
         "title": "Attachment",
         "type": "object",
-        "required": ["name", "file"],
+        "required": [
+          "name",
+          "file"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -80856,7 +84419,9 @@
       "Award": {
         "title": "Award",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -80897,7 +84462,10 @@
       "Image": {
         "title": "Image",
         "type": "object",
-        "required": ["name", "image"],
+        "required": [
+          "name",
+          "image"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -80960,7 +84528,10 @@
       "AwardRecord": {
         "title": "AwardRecord",
         "type": "object",
-        "required": ["user_id", "award_id"],
+        "required": [
+          "user_id",
+          "award_id"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -81008,7 +84579,10 @@
       "Calendar": {
         "title": "Calendar",
         "type": "object",
-        "required": ["name", "color"],
+        "required": [
+          "name",
+          "color"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81088,7 +84662,11 @@
       "Document": {
         "title": "Document",
         "type": "object",
-        "required": ["name", "author_id", "content"],
+        "required": [
+          "name",
+          "author_id",
+          "content"
+        ],
         "properties": {
           "author_id": {
             "type": "integer"
@@ -81132,7 +84710,11 @@
       "Form": {
         "title": "Form",
         "type": "object",
-        "required": ["name", "slug", "is_public"],
+        "required": [
+          "name",
+          "slug",
+          "is_public"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81190,7 +84772,9 @@
       "Qualification": {
         "title": "Qualification",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81231,7 +84815,9 @@
       "Rank": {
         "title": "Rank",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81280,7 +84866,10 @@
       "CombatRecord": {
         "title": "CombatRecord",
         "type": "object",
-        "required": ["user_id", "text"],
+        "required": [
+          "user_id",
+          "text"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -81324,7 +84913,10 @@
       "Comment": {
         "title": "Comment",
         "type": "object",
-        "required": ["author_id", "comment"],
+        "required": [
+          "author_id",
+          "comment"
+        ],
         "properties": {
           "author_id": {
             "type": "integer"
@@ -81368,7 +84960,17 @@
       "Event": {
         "title": "Event",
         "type": "object",
-        "required": ["name", "calendar_id", "author_id", "starts", "ends", "repeats", "all_day", "registration_enabled", "notifications_enabled"],
+        "required": [
+          "name",
+          "calendar_id",
+          "author_id",
+          "starts",
+          "ends",
+          "repeats",
+          "all_day",
+          "registration_enabled",
+          "notifications_enabled"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81431,7 +85033,13 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": ["pt0m", "pt15m", "pt1h", "p1d", "p1w"]
+              "enum": [
+                "pt0m",
+                "pt15m",
+                "pt1h",
+                "p1d",
+                "p1w"
+              ]
             },
             "nullable": true
           },
@@ -81439,7 +85047,14 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": ["broadcast", "database", "discord_private", "discord_public", "mail", "sms"]
+              "enum": [
+                "broadcast",
+                "database",
+                "discord_private",
+                "discord_public",
+                "mail",
+                "sms"
+              ]
             },
             "nullable": true
           }
@@ -81471,7 +85086,10 @@
         "title": "Submission",
         "type": "object",
         "additionalProperties": true,
-        "required": ["form_id", "user_id"],
+        "required": [
+          "form_id",
+          "user_id"
+        ],
         "properties": {
           "form_id": {
             "type": "integer"
@@ -81507,7 +85125,9 @@
       "Group": {
         "title": "Group",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81557,7 +85177,10 @@
       "Message": {
         "title": "Message",
         "type": "object",
-        "required": ["message", "channels"],
+        "required": [
+          "message",
+          "channels"
+        ],
         "properties": {
           "message": {
             "type": "string",
@@ -81567,7 +85190,14 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": ["broadcast", "database", "discord_private", "discord_public", "mail", "sms"]
+              "enum": [
+                "broadcast",
+                "database",
+                "discord_private",
+                "discord_public",
+                "mail",
+                "sms"
+              ]
             }
           },
           "recipients": {
@@ -81687,7 +85317,9 @@
       "Position": {
         "title": "Position",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81728,7 +85360,10 @@
       "QualificationRecord": {
         "title": "QualificationRecord",
         "type": "object",
-        "required": ["user_id", "qualification_id"],
+        "required": [
+          "user_id",
+          "qualification_id"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -81776,7 +85411,11 @@
       "RankRecord": {
         "title": "RankRecord",
         "type": "object",
-        "required": ["user_id", "rank_id", "type"],
+        "required": [
+          "user_id",
+          "rank_id",
+          "type"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -81800,7 +85439,12 @@
           "type": {
             "type": "integer",
             "description": "0: Promotion, 1: Demotion, 2: Lateral, 3: Transfer",
-            "enum": [0, 1, 2, 3]
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ]
           }
         }
       },
@@ -81829,7 +85473,10 @@
       "ServiceRecord": {
         "title": "ServiceRecord",
         "type": "object",
-        "required": ["user_id", "text"],
+        "required": [
+          "user_id",
+          "text"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -81870,6 +85517,56 @@
           }
         ]
       },
+      "TrainingRecord": {
+        "title": "TrainingRecord",
+        "type": "object",
+        "required": [
+          "user_id"
+        ],
+        "properties": {
+          "user_id": {
+            "type": "integer"
+          },
+          "instructor_id": {
+            "type": "integer"
+          },
+          "document_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "author_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "text": {
+            "type": "string",
+            "nullable": true,
+            "description": "Supports HTML."
+          }
+        }
+      },
+      "TrainingRecordResource": {
+        "title": "TrainingRecordResource",
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/TrainingRecord"
+          },
+          {
+            "$ref": "#/components/schemas/Label"
+          },
+          {
+            "$ref": "#/components/schemas/Dates"
+          }
+        ]
+      },
       "Settings": {
         "title": "Settings",
         "type": "object",
@@ -81883,13 +85580,13 @@
           },
           "payload": {
             "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "integer"
-                  }
-                ]
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ]
           },
           "locked": {
             "type": "boolean"
@@ -81918,7 +85615,9 @@
       "Specialty": {
         "title": "Specialty",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -81963,7 +85662,10 @@
       "Status": {
         "title": "Status",
         "type": "object",
-        "required": ["name", "color"],
+        "required": [
+          "name",
+          "color"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -82003,7 +85705,9 @@
       "Task": {
         "title": "Task",
         "type": "object",
-        "required": ["title"],
+        "required": [
+          "title"
+        ],
         "properties": {
           "title": {
             "type": "string"
@@ -82049,7 +85753,9 @@
       "Unit": {
         "title": "Unit",
         "type": "object",
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -82149,6 +85855,17 @@
             "items": {
               "type": "object"
             }
+          },
+          "options_type": {
+            "type": "string",
+            "enum": [
+              "array",
+              "model"
+            ]
+          },
+          "options_model": {
+            "type": "string",
+            "description": "If the options type is a model, this is the resource that should populate the options field."
           }
         }
       },
@@ -82368,7 +86085,7 @@
         "properties": {
           "message": {
             "type": "string",
-            "example": "The requested resource could not be found."
+            "example": "The requested resource or endpoint could not be found."
           },
           "type": {
             "type": "string",
@@ -82502,6 +86219,10 @@
       "description": "API documentation for Forms"
     },
     {
+      "name": "Forms Fields",
+      "description": "API documentation for Forms Fields"
+    },
+    {
       "name": "Forms Submissions",
       "description": "API documentation for Forms Submissions"
     },
@@ -82564,6 +86285,10 @@
     {
       "name": "Service Records",
       "description": "API documentation for Service Records"
+    },
+    {
+      "name": "Training Records",
+      "description": "API documentation for Training Records"
     },
     {
       "name": "Settings",

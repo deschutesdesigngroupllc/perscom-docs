@@ -1,6 +1,6 @@
 ---
 title: "Widgets"
-description: "Integrate PERSCOM into any website."
+description: "Integrate the PERSCOM UI into any website."
 ---
 
 PERSCOM.io offers powerful widgets that allow the integration of your organizational data into another website for display. Each widget is a snippet of HTML that can be injected into your website.
@@ -66,8 +66,7 @@ To start using the PERSCOM widget, copy and paste the following HTML snippet int
 </div>
 ```
 
-
-``` Positions
+```html Positions {4-5}
 <div id="perscom_widget_wrapper">
     <script
         id="perscom_widget"
@@ -79,8 +78,7 @@ To start using the PERSCOM widget, copy and paste the following HTML snippet int
 </div>
 ```
 
-
-``` Qualifications
+```html Qualifications {4-5}
 <div id="perscom_widget_wrapper">
     <script
         id="perscom_widget"
@@ -93,7 +91,7 @@ To start using the PERSCOM widget, copy and paste the following HTML snippet int
 ```
 
 
-``` Specialties
+```html Specialties {4-5}
 <div id="perscom_widget_wrapper">
     <script
         id="perscom_widget"
@@ -106,7 +104,7 @@ To start using the PERSCOM widget, copy and paste the following HTML snippet int
 ```
 
 
-``` Ranks
+```html Ranks {4-5}
 <div id="perscom_widget_wrapper">
     <script
         id="perscom_widget"
@@ -136,3 +134,48 @@ The following widgets are currently available. Each widget is identified by a wi
 6. Qualifications `data-widget='qualifications'`
 7. Specialties `data-widget='specialties'`
 8. Ranks `data-widget='ranks'`
+
+## Options
+
+Widgets can be customized by providing additional `data` attributes. Below are the list of available configurable options:
+
+| Option          | Type   | Default | Description                                                               |
+|:----------------|:-------|:--------|:--------------------------------------------------------------------------|
+| `data-dark`     | bool   |  false  | Enables dark mode support for the widget.                                 |
+| `data-resource` | string |         | Returns a specific resource for the widget using the provided identifier. |
+
+## Specific Resources
+
+A few widgets support the ability to provide an identifier to retrieve a specific resource. For example, you may want to display a specific form in your website. By providing the `data-resource` attribute, you can retrieve a specific form.
+
+**Supported Widgets:** Forms
+
+```html Ranks {6}
+<div id="perscom_widget_wrapper">
+    <script
+        id="perscom_widget"
+        data-apikey="APIKEY"
+        data-widget="forms"
+        data-resource="1"
+        src="https://widget.perscom.io/widget.js"
+        type="text/javascript"
+    ></script>
+</div>
+```
+
+## Advanced
+
+The information below is for users who have experience in software development and provide option for advanced usage of the widgets.
+
+### Navigation
+
+You may programmatically force the widget to navigate to a URL by dispatching a browser based event. The iframe that renders the widget listens for events and will force the iframe to navigate using the information provided in the event payload. See the example below.
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  window.parent.postMessage({
+    type: 'widget:navigate',
+    path: 'roster' // The widget ID.
+  }, '*')
+});
+```

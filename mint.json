@@ -88,9 +88,15 @@
     {
       "group": "Integrations",
       "pages": [
-        "integrations/introduction",
+        "integrations/introduction"
+      ]
+    },
+    {
+      "group": "First Party",
+      "pages": [
         "integrations/api",
         "integrations/forums",
+        "integrations/oauth",
         {
           "group": "SDKs",
           "pages": [
@@ -105,6 +111,13 @@
             "integrations/third-party/discord"
           ]
         }
+      ]
+    },
+    {
+      "group": "Third Party",
+      "pages": [
+        "integrations/third-party/discord",
+        "integrations/third-party/google"
       ]
     },
     {
@@ -376,6 +389,25 @@
                 "api-reference/endpoints/forms/delete-a-batch-of-forms",
                 "api-reference/endpoints/forms/update-a-batch-of-forms",
                 {
+                  "group": "Fields",
+                  "icon": "pencil",
+                  "pages": [
+                    "api-reference/endpoints/forms-fields/get-a-list-of-fields",
+                    "api-reference/endpoints/forms-fields/create-field",
+                    "api-reference/endpoints/forms-fields/get-field",
+                    "api-reference/endpoints/forms-fields/delete-field",
+                    "api-reference/endpoints/forms-fields/update-field",
+                    "api-reference/endpoints/forms-fields/create-a-batch-of-fields",
+                    "api-reference/endpoints/forms-fields/delete-a-batch-of-fields",
+                    "api-reference/endpoints/forms-fields/update-a-batch-of-fields",
+                    "api-reference/endpoints/forms-fields/attach-fields",
+                    "api-reference/endpoints/forms-fields/detach-fields",
+                    "api-reference/endpoints/forms-fields/sync-fields",
+                    "api-reference/endpoints/forms-fields/toggle-fields",
+                    "api-reference/endpoints/forms-fields/update-pivot"
+                  ]
+                },
+                {
                   "group": "Submissions",
                   "icon": "folder-plus",
                   "pages": [
@@ -611,6 +643,20 @@
                     "api-reference/endpoints/service-records/delete-a-batch-of-records-service",
                     "api-reference/endpoints/service-records/update-a-batch-of-records-service"
                   ]
+                },
+                {
+                  "group": "Training Records",
+                  "icon": "graduation-cap",
+                  "pages": [
+                    "api-reference/endpoints/training-records/get-a-list-of-records-trainings",
+                    "api-reference/endpoints/training-records/create-records-training",
+                    "api-reference/endpoints/training-records/get-records-training",
+                    "api-reference/endpoints/training-records/delete-records-training",
+                    "api-reference/endpoints/training-records/update-records-training",
+                    "api-reference/endpoints/training-records/create-a-batch-of-records-trainings",
+                    "api-reference/endpoints/training-records/delete-a-batch-of-records-trainings",
+                    "api-reference/endpoints/training-records/update-a-batch-of-records-trainings"
+                  ]
                 }
               ]
             },
@@ -760,23 +806,23 @@
                   ]
                 },
                 {
-                "group": "Fields",
+                  "group": "Fields",
                   "icon": "pencil",
-                "pages": [
-                  "api-reference/endpoints/users-fields/get-a-list-of-fields",
-                  "api-reference/endpoints/users-fields/create-field",
-                  "api-reference/endpoints/users-fields/get-field",
-                  "api-reference/endpoints/users-fields/delete-field",
-                  "api-reference/endpoints/users-fields/update-field",
-                  "api-reference/endpoints/users-fields/create-a-batch-of-fields",
-                  "api-reference/endpoints/users-fields/delete-a-batch-of-fields",
-                  "api-reference/endpoints/users-fields/update-a-batch-of-fields",
-                  "api-reference/endpoints/users-fields/attach-fields",
-                  "api-reference/endpoints/users-fields/detach-fields",
-                  "api-reference/endpoints/users-fields/sync-fields",
-                  "api-reference/endpoints/users-fields/toggle-fields",
-                  "api-reference/endpoints/users-fields/update-pivot"
-                ]
+                  "pages": [
+                    "api-reference/endpoints/users-fields/get-a-list-of-fields",
+                    "api-reference/endpoints/users-fields/create-field",
+                    "api-reference/endpoints/users-fields/get-field",
+                    "api-reference/endpoints/users-fields/delete-field",
+                    "api-reference/endpoints/users-fields/update-field",
+                    "api-reference/endpoints/users-fields/create-a-batch-of-fields",
+                    "api-reference/endpoints/users-fields/delete-a-batch-of-fields",
+                    "api-reference/endpoints/users-fields/update-a-batch-of-fields",
+                    "api-reference/endpoints/users-fields/attach-fields",
+                    "api-reference/endpoints/users-fields/detach-fields",
+                    "api-reference/endpoints/users-fields/sync-fields",
+                    "api-reference/endpoints/users-fields/toggle-fields",
+                    "api-reference/endpoints/users-fields/update-pivot"
+                  ]
                 },
                 {
                   "group": "Position",
