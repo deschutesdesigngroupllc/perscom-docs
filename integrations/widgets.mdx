@@ -167,15 +167,42 @@ A few widgets support the ability to provide an identifier to retrieve a specifi
 
 The information below is for users who have experience in software development and provide option for advanced usage of the widgets.
 
+### Alpine.js
+
+Alpine is a rugged, minimal tool for composing behavior directly in your markup. Think of it like jQuery for the modern web. Plop in a script tag and get going. The widgets can be innjected into the page using a dynamic approach that allows for logic to be run before the widget is rendered.
+
+In this example, we can check if `dark` mode is enabled on the parent web page. If it is, we render the widget with `data-dark='true'` enabled.
+
+```js
+<div x-data="{
+  init() {
+    const script = document.createElement('script');
+    script.id = 'perscom_widget';
+    script.src = 'https://widget.perscom.io/widget.js';
+    script.type = 'text/javascript';
+    script.setAttribute('data-apikey', '{{ $this->apiKey }}');
+    script.setAttribute('data-widget', '{{ $this->widget }}');
+
+    if (document.documentElement.classList.contains('dark')) {
+      script.setAttribute('data-dark', 'true');
+    }
+
+    document.getElementById('perscom_widget_wrapper')?.appendChild(script);
+  }
+}" x-init="init">
+  <div id="perscom_widget_wrapper"></div>
+</div>
+```
+
 ### Navigation
 
-You may programmatically force the widget to navigate to a URL by dispatching a browser based event. The iframe that renders the widget listens for events and will force the iframe to navigate using the information provided in the event payload. See the example below.
+You may programmatically force the widget to navigate to a new URL by dispatching a browser based event. This is how we, for example, open a form when the button is clicked. The iframe that renders the widget listens for events and will force the iframe to navigate using the information provided in the event payload. See the example below.
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
   window.parent.postMessage({
     type: 'widget:navigate',
-    path: 'roster' // The widget ID.
+    path: 'roster' // The widget ID. This will translate to the iframe URL being: https://api.perscom.io/v2/widgets/{path}
   }, '*')
 });
 ```
