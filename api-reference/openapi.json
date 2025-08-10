@@ -86104,6 +86104,19 @@
           "type": {
             "type": "string",
             "example": "ValidationException"
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": {
+              "email": ["The email field is required.", "The email must be a valid email address."],
+              "password": ["The password must be at least 8 characters.", "The password must contain at least one uppercase letter."]
+            }
           }
         }
       },
