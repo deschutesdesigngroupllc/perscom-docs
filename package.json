@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "format": "prettier './**/*.{js}' --write --prose-wrap always --config ./.prettierrc"
+    "format": "prettier './**/*.{js,json}' --write --prose-wrap always --config ./.prettierrc"
   },
   "devDependencies": {
     "prettier": "^3.1.0"

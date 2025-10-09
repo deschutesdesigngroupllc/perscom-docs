@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/jonerickson/Code/perscom/app/Http/Requests/Api/**)",
+      "Read(//Users/jonerickson/Code/perscom/app/Models/Enums/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
