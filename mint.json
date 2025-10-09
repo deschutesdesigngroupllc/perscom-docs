@@ -70,26 +70,15 @@
   "navigation": [
     {
       "group": "Documentation",
-      "pages": [
-        "docs/introduction",
-        "docs/getting-started",
-        "docs/pricing",
-        "docs/register",
-        "docs/demo",
-        "docs/support"
-      ]
+      "pages": ["docs/introduction", "docs/getting-started", "docs/pricing", "docs/register", "docs/demo", "docs/support"]
     },
     {
       "group": "Guides",
-      "pages": [
-        "guides/introduction"
-      ]
+      "pages": ["guides/introduction"]
     },
     {
       "group": "Integrations",
-      "pages": [
-        "integrations/introduction"
-      ]
+      "pages": ["integrations/introduction"]
     },
     {
       "group": "First Party",
@@ -99,26 +88,19 @@
         "integrations/oauth",
         {
           "group": "SDKs",
-          "pages": [
-            "integrations/sdk/php"
-          ]
+          "pages": ["integrations/sdk/php"]
         },
         "integrations/webhooks",
         "integrations/widgets",
         {
           "group": "Third Party",
-          "pages": [
-            "integrations/third-party/discord"
-          ]
+          "pages": ["integrations/third-party/discord"]
         }
       ]
     },
     {
       "group": "Third Party",
-      "pages": [
-        "integrations/third-party/discord",
-        "integrations/third-party/google"
-      ]
+      "pages": ["integrations/third-party/discord", "integrations/third-party/google"]
     },
     {
       "group": "API Reference",
@@ -132,9 +114,7 @@
             {
               "group": "Me",
               "icon": "user",
-              "pages": [
-                "api-reference/endpoints/me/get-a-list-of-users"
-              ]
+              "pages": ["api-reference/endpoints/me/get-a-list-of-users"]
             },
             {
               "group": "Announcements",
@@ -191,9 +171,7 @@
             {
               "group": "Cache",
               "icon": "database",
-              "pages": [
-                "api-reference/endpoints/cache/clear-cache"
-              ]
+              "pages": ["api-reference/endpoints/cache/clear-cache"]
             },
             {
               "group": "Calendars",
@@ -663,17 +641,12 @@
             {
               "group": "Roster",
               "icon": "bars",
-              "pages": [
-                "api-reference/endpoints/roster/get-a-list-of-groups",
-                "api-reference/endpoints/roster/get-group"
-              ]
+              "pages": ["api-reference/endpoints/roster/get-a-list-of-groups", "api-reference/endpoints/roster/get-group"]
             },
             {
               "group": "Settings",
               "icon": "gear",
-              "pages": [
-                "api-reference/endpoints/settings/get-a-list-of-settings"
-              ]
+              "pages": ["api-reference/endpoints/settings/get-a-list-of-settings"]
             },
             {
               "group": "Specialties",
