@@ -3,6 +3,6 @@
     "format": "prettier './**/*.{js,json}' --write --prose-wrap always --config ./.prettierrc"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.6.2"
   }
 }
