@@ -1,4 +1,4 @@
-# Contributing to the PERSCOM Docs
+# Contribution Guide
 
 Thank you for your interest in contributing to PERSCOM Docs! We welcome contributions from the community to help improve and grow this project. Please take a moment to read through the following guidelines to ensure a smooth contribution process.
 
@@ -75,7 +75,7 @@ Before submitting your pull request, please make sure you have done the followin
 
 ## Community and Communication
 
-Join our [community chat](https://community.deschutesdesigngroup.com) to stay connected with other contributors and maintainers. We appreciate your feedback and involvement!
+Join our [Slack](https://perscom.io/slack) to stay connected with other contributors and maintainers. We appreciate your feedback and involvement!
 
 ## License
 
