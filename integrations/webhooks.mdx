@@ -1,51 +1,122 @@
 ---
 title: "Webhooks"
-description: "Webhooks provide real-time notifications to external service to keep data in sync."
+description: "Receive real-time notifications when data changes in PERSCOM."
 ---
 
-For PERSCOM, webhooks can be used to enable real-time notifications and data updates for third-party services, such as a messaging platform (for example Slack, Telegram, Discord), an external database (for example Firebase or AWS) or a custom reporting tool. This means that any changes made within PERSCOM, such as new personnel records or updated qualifications, can be automatically communicated to other systems in real-time, without the need for manual data entry or synchronization. This can improve data accuracy and save time for personnel managers and other staff who rely on the system for critical information.
+Webhooks send HTTP requests to external URLs when events occur in PERSCOM. Use webhooks to integrate with messaging platforms like Slack, Telegram, or Discord, sync data with external databases, or trigger custom workflows in your applications.
 
-## Creating A Webhook
+## Use Cases
 
-Webhooks can be managed via your PERSCOM dashboard. Webhooks require a URL that will be notified each time an event takes place that the webhook is subscribed to. Webhooks can either make a `GET` or `POST` HTTP request. Each HTTP request will be signed with a user-defined secret
-that may be used to verify that the payload has not been tampered with. The signed signature will be available within the `Signature` header of the HTTP request.
+Webhooks enable you to:
 
-A list of available events that a webhook may subscribe to is located below.
+- Send notifications to Discord or Slack when users are created or updated
+- Sync personnel changes to external databases like Firebase or AWS
+- Trigger custom reporting tools when records change
+- Build real-time dashboards that reflect PERSCOM data
+
+## Create A Webhook
+
+1. In the sidebar, select **Integrations** > **Webhooks**.
+2. Select **New webhook**.
+3. Enter a **Name** to identify the webhook.
+4. Enter the **URL** that receives webhook requests.
+5. Select the **Method** (`GET` or `POST`).
+6. Enter a **Secret** to sign requests for verification.
+7. Select the **Events** that trigger this webhook.
+8. Select **Create**.
+
+## Request Verification
+
+Each webhook request includes a `Signature` header containing an HMAC signature. Use this signature to verify that requests originate from PERSCOM and haven't been tampered with.
+
+To verify a request:
+
+1. Extract the `Signature` header from the incoming request.
+2. Compute an HMAC-SHA256 hash of the request body using your webhook secret.
+3. Compare your computed signature with the `Signature` header.
 
 ## Events
 
-The following is a list of events that a webhook may subscribe to.
+Webhooks can subscribe to any of the following events:
 
-- assignmentrecord.created
-- assignmentrecord.updated
-- assignmentrecord.deleted
-- awardrecord.created
-- awardrecord.updated
-- awardrecord.deleted
-- calendar.created
-- calendar.updated
-- calendar.deleted
-- combatrecord.created
-- combatrecord.updated
-- combatrecord.deleted
-- event.created
-- event.updated
-- event.deleted
-- message.created
-- message.updated
-- message.deleted
-- qualificationrecord.created
-- qualificationrecord.updated
-- qualificationrecord.deleted
-- rankrecord.created
-- rankrecord.updated
-- rankrecord.deleted
-- servicerecord.created
-- servicerecord.updated
-- servicerecord.deleted
-- submission.created
-- submission.updated
-- submission.deleted
-- user.created
-- user.updated
-- user.deleted
+<Tabs>
+  <Tab title="Users">
+    | Event | Description |
+    |-------|-------------|
+    | `user.created` | A new user was created |
+    | `user.updated` | A user was updated |
+    | `user.deleted` | A user was deleted |
+  </Tab>
+
+  <Tab title="Records">
+    | Event | Description |
+    |-------|-------------|
+    | `assignmentrecord.created` | An assignment record was created |
+    | `assignmentrecord.updated` | An assignment record was updated |
+    | `assignmentrecord.deleted` | An assignment record was deleted |
+    | `awardrecord.created` | An award record was created |
+    | `awardrecord.updated` | An award record was updated |
+    | `awardrecord.deleted` | An award record was deleted |
+    | `combatrecord.created` | A combat record was created |
+    | `combatrecord.updated` | A combat record was updated |
+    | `combatrecord.deleted` | A combat record was deleted |
+    | `qualificationrecord.created` | A qualification record was created |
+    | `qualificationrecord.updated` | A qualification record was updated |
+    | `qualificationrecord.deleted` | A qualification record was deleted |
+    | `rankrecord.created` | A rank record was created |
+    | `rankrecord.updated` | A rank record was updated |
+    | `rankrecord.deleted` | A rank record was deleted |
+    | `servicerecord.created` | A service record was created |
+    | `servicerecord.updated` | A service record was updated |
+    | `servicerecord.deleted` | A service record was deleted |
+  </Tab>
+
+  <Tab title="Calendars & Events">
+    | Event | Description |
+    |-------|-------------|
+    | `calendar.created` | A calendar was created |
+    | `calendar.updated` | A calendar was updated |
+    | `calendar.deleted` | A calendar was deleted |
+    | `event.created` | An event was created |
+    | `event.updated` | An event was updated |
+    | `event.deleted` | An event was deleted |
+  </Tab>
+
+  <Tab title="Messages">
+    | Event | Description |
+    |-------|-------------|
+    | `message.created` | A message was created |
+    | `message.updated` | A message was updated |
+    | `message.deleted` | A message was deleted |
+  </Tab>
+
+  <Tab title="Submissions">
+    | Event | Description |
+    |-------|-------------|
+    | `submission.created` | A form submission was created |
+    | `submission.updated` | A form submission was updated |
+    | `submission.deleted` | A form submission was deleted |
+  </Tab>
+
+  <Tab title="Test">
+    | Event | Description |
+    |-------|-------------|
+    | `webhook.test` | Test event for verifying webhook configuration |
+  </Tab>
+</Tabs>
+
+## Webhook Logs
+
+PERSCOM logs all webhook requests for debugging purposes. To view logs:
+
+1. In the sidebar, select **Integrations** > **Webhooks**.
+2. Select a webhook to view its details.
+3. Review the **Logs** section to see request history, including status codes and response times.
+
+## Automations
+
+For more advanced webhook workflows with conditional logic and custom payloads, see [Automations](/integrations/automations). Automations allow you to:
+
+- Add conditions to control when webhooks fire
+- Customize the JSON payload sent to external services
+- Use Twig templates for dynamic content

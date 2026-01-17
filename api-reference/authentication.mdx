@@ -3,4 +3,82 @@ title: 'Authentication'
 description: 'Learn how to authenticate requests to the PERSCOM API.'
 ---
 
-Coming soon.
+All API requests require authentication using an API key passed as a Bearer token.
+
+## API Keys
+
+API keys provide access to your organization's data through the PERSCOM API. Each key can be configured with specific scopes to limit its permissions.
+
+### Create An API Key
+
+1. In the sidebar, select **Integrations** > **API Keys**.
+2. Select **New API key**.
+3. Enter a **Name** to identify the key.
+4. Configure **Scopes** to limit what the key can access, or select **All scopes** for full access.
+5. Select **Create**.
+
+After creating the key, copy and store it securely. The full key is only displayed once.
+
+> **Important:** Treat API keys like passwords. Never share them publicly or commit them to version control.
+
+## Making Authenticated Requests
+
+Include your API key in the `Authorization` header of every request:
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+### Example Request
+
+```bash
+curl -X GET "https://api.perscom.io/v2/users" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Accept: application/json"
+```
+
+## Authentication Errors
+
+If authentication fails, the API returns a `401 Unauthorized` response:
+
+```json
+{
+  "error": {
+    "message": "You are not authenticated. Please provide a valid API key that contains your PERSCOM ID to continue.",
+    "type": "AuthenticationException",
+    "request_id": "550e8400-e29b-41d4-a716-446655440000",
+    "trace_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  }
+}
+```
+
+Common causes:
+- Missing or malformed `Authorization` header
+- Invalid or expired API key
+- Revoked API key
+
+## Key Management
+
+### View Keys
+
+View all API keys in **Integrations** > **API Keys**. Each key displays:
+- Name and creation date
+- Scopes assigned to the key
+- Last used timestamp
+
+### Revoke Keys
+
+To revoke an API key:
+
+1. Navigate to **Integrations** > **API Keys**.
+2. Find the key and select **Delete**.
+
+Revoking a key immediately invalidates it. Any requests using the revoked key will fail with a `401 Unauthorized` error.
+
+## Best Practices
+
+- **Use descriptive names** for keys to identify their purpose
+- **Limit scopes** to only what the integration needs
+- **Rotate keys regularly** for security-sensitive integrations
+- **Use environment variables** to store keys in your applications
+- **Never expose keys** in client-side code or public repositories

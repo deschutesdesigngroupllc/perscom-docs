@@ -1,47 +1,59 @@
 ---
 title: 'Introduction'
-description: 'Learn how to work with the powerful PERSCOM API.'
+description: 'Learn how to integrate with the PERSCOM API.'
 ---
+
+The PERSCOM API provides programmatic access to your personnel data, enabling integration with third-party services and custom applications.
 
 ## Getting Started
 
 Jumpstart your integration using our official Postman collection.
 
 <a href="https://app.getpostman.com/run-collection/7901103-9c9e8242-21b0-47ef-ba7b-7c712162c256?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D7901103-9c9e8242-21b0-47ef-ba7b-7c712162c256%26entityType%3Dcollection%26workspaceId%3D1f6492d8-21a2-4e2f-b2a8-55c55f80e062" target="_blank">
-  <img noZoom src="https://run.pstmn.io/button.svg"  alt="Run in Postman"/>
+  <img noZoom src="https://run.pstmn.io/button.svg" alt="Run in Postman"/>
 </a>
 
-The PERSCOM API is the backbone that allows PERSCOM to function and deliver the services you've come to enjoy. The API also allows you
-to integrate your PERSCOM.io data with third-party services and applications.
-
-<Card title="PERSCOM API OpenAPI Schema" icon="code" href="https://api.perscom.io/spec.json">
-  View the OpenAPI specification file.
+<Card title="OpenAPI Specification" icon="code" href="https://api.perscom.io/spec.json">
+  View the PERSCOM API OpenAPI specification file.
 </Card>
 
-The PERSCOM API is built using a RESTful interface. A request to the PERSCOM API requires a HTTP `GET`, `POST`, `PUT`, `PATCH`, or`DELETE` request along with an API key to an available URL endpoint. A collection of all available endpoints can be found under the`Endpoints` folder.
+## Base URL
+
+All API requests use the following base URL:
+
+```
+https://api.perscom.io/{version}
+```
+
+Replace `{version}` with the API version. The current version is `v2`.
+
+## Request Format
+
+The PERSCOM API uses a RESTful interface. Requests require:
+
+- An HTTP method: `GET`, `POST`, `PUT`, `PATCH`, or `DELETE`
+- An API key passed as a Bearer token in the `Authorization` header
+- The `Accept: application/json` header
 
 ## Authentication
 
-Requests to the PERSCOM API require the user to verify who they are. The API expects an API Key to be passed via a `Bearer` token in the`Authorization` header of your HTTP request. API Keys can be managed under your PERSCOM dashboard.
-
-## Versioning
-
-In an effort to always provide a powerful and robust API, we've adopted a versioning system to help us roll out regular updates. The API version is defined as a path parameter in the URL. For example:
+API requests require authentication via an API key. Pass your key as a Bearer token in the `Authorization` header:
 
 ```
-https://api.perscom.io/{version}/users
+Authorization: Bearer YOUR_API_KEY
 ```
 
-Replace `{version}` with the API version. The current API version is `v2`.
+Manage your API keys in the PERSCOM dashboard under **Integrations** > **API Keys**.
+
+For more details, see [Authentication](/api-reference/authentication).
 
 ## Caching
 
-The PERSCOM API is backed by a worldwide CDN and cache that allows us to deliver your requests quicker no matter where they originate from. On the dashboard, we handle updating the cache whenever you make a change to your data to make sure you always have access to the most
-up-to-date data available. Sometimes, this data can get out-of-sync and a cache purge is necessary. At anytime if you feel the data you are receiving from the API is stale, you can initiate a cache purge from the API section of your PERSCOM dashboard.
+The PERSCOM API uses a worldwide CDN to deliver fast responses. When you update data through the dashboard, the cache refreshes automatically.
+
+If you encounter stale data, you can purge the cache from the **Integrations** > **API Keys** section in your dashboard.
 
 ## Examples
-
-Below are examples of requests made to the PERSCOM API using different software solutions.
 
 <CodeGroup>
   ```php PHP
@@ -51,7 +63,7 @@ Below are examples of requests made to the PERSCOM API using different software 
 
   $headers = [
       'Accept' => 'application/json',
-      'Authorization' => "Bearer ${apiKey}"
+      'Authorization' => "Bearer {$apiKey}"
   ];
 
   $response = $client->request('GET', 'https://api.perscom.io/v2/users', [
@@ -61,11 +73,11 @@ Below are examples of requests made to the PERSCOM API using different software 
   echo 'Status code: ' . $response->getStatusCode();
   ```
 
-  ```js Javascript
+  ```js JavaScript
   fetch('https://api.perscom.io/v2/users', {
     method: 'GET',
     headers: {
-      Authorization: 'Bearer apiKey',
+      Authorization: 'Bearer YOUR_API_KEY',
       Accept: 'application/json'
     }
   })
@@ -82,7 +94,7 @@ Below are examples of requests made to the PERSCOM API using different software 
 
   url = 'https://api.perscom.io/v2/users'
   headers = {
-      'Authorization': 'Bearer apiKey',
+      'Authorization': 'Bearer YOUR_API_KEY',
       'Accept': 'application/json',
   }
   response = requests.get(url, headers=headers)

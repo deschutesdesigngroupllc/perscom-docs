@@ -1,0 +1,369 @@
+---
+title: "Automations"
+description: "Automate workflows by triggering actions when specific events occur in your organization."
+---
+
+Automations enable you to create powerful, event-driven workflows that execute automatically when specific actions occur in PERSCOM. Instead of manually performing repetitive tasks, you can configure automations to send notifications, trigger webhooks, or deliver messages whenever personnel records change, forms are submitted, or users are updated.
+
+## Use Cases
+
+Automations are useful for:
+
+- **Notifications**: Send messages to team members when a user receives a new award or promotion
+- **External integrations**: Trigger webhooks to sync data with external systems like Discord, Slack, or custom applications
+- **Approval workflows**: Notify supervisors when new form submissions require review
+- **Audit trails**: Send automated messages when critical personnel changes occur
+- **Onboarding**: Welcome new users with automated messages when their accounts are created
+
+## How Automations Work
+
+Each automation consists of three components:
+
+1. **Trigger**: The event that starts the automation (e.g., "User Created" or "Award Record Updated")
+2. **Condition** (optional): An expression that determines whether the action should execute
+3. **Action**: What happens when the automation runs (send a webhook or create a message)
+
+When the trigger event occurs and any configured conditions are met, the automation executes the specified action and logs the result.
+
+## Create an Automation
+
+1. In the sidebar, select **Integrations** > **Automations**.
+2. Select **New automation**.
+3. Configure the automation settings:
+   - **Name**: A descriptive name for the automation
+   - **Description**: Optional explanation of what the automation does
+   - **Priority**: Lower numbers run first when multiple automations share the same trigger (default is 0)
+   - **Enabled**: Toggle to activate or deactivate the automation
+
+4. Select the **1. Trigger** tab and choose the event that starts this automation.
+5. (Optional) Select the **2. Condition** tab to add a conditional expression.
+6. Select the **3. Action** tab and configure either a webhook or message action.
+7. Select **Create**.
+
+## Triggers
+
+Triggers define which events start your automation. Select one trigger per automation. To respond to multiple events, create separate automations for each.
+
+### Available Triggers
+
+| Category | Events |
+|----------|--------|
+| User | User Created, User Updated, User Deleted |
+| Assignment Record | Assignment Record Created, Updated, Deleted |
+| Award Record | Award Record Created, Updated, Deleted |
+| Combat Record | Combat Record Created, Updated, Deleted |
+| Qualification Record | Qualification Record Created, Updated, Deleted |
+| Rank Record | Rank Record Created, Updated, Deleted |
+| Service Record | Service Record Created, Updated, Deleted |
+| Calendar | Calendar Created, Updated, Deleted |
+| Event | Event Created, Updated, Deleted |
+| Message | Message Created, Updated, Deleted |
+| Submission | Submission Created, Updated, Deleted |
+
+## Conditions
+
+Conditions allow you to control when an automation executes based on the data in the triggered event. Conditions use expression syntax to evaluate whether the action should run.
+
+### Expression Syntax
+
+Conditions use the [Symfony Expression Language](https://symfony.com/doc/current/components/expression_language/syntax.html) syntax. Expressions must evaluate to `true` for the action to execute.
+
+**Basic comparisons:**
+```
+model.status == "active"
+model.rank_id > 5
+causer.id != model.id
+```
+
+**Logical operators:**
+```
+model.status == "active" and model.approved == true
+model.rank_id > 5 or model.position_id == 1
+```
+
+**Null checks:**
+```
+causer != null
+model.notes != null
+```
+
+### Available Context Variables
+
+When writing conditions, you have access to these variables:
+
+| Variable | Description |
+|----------|-------------|
+| `model` | The record that triggered the event (e.g., the user or award record) |
+| `original` | The original values before the update (for update triggers) |
+| `causer` | The user who triggered the event, if available |
+
+Access nested properties using dot notation: `model.name`, `model.email`, `causer.id`.
+
+### Built-in Functions
+
+Use these functions in your condition expressions:
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `in_array(needle, haystack)` | Check if a value exists in an array | `in_array(model.status_id, [1, 2, 3])` |
+| `contains(haystack, needle)` | Check if a string contains a substring | `contains(model.email, "@example.com")` |
+| `starts_with(haystack, needle)` | Check if a string starts with a prefix | `starts_with(model.name, "Admin")` |
+| `ends_with(haystack, needle)` | Check if a string ends with a suffix | `ends_with(model.email, ".gov")` |
+| `changed(key)` | Check if a specific field was changed | `changed("rank_id")` |
+| `old_value(key)` | Get the previous value of a changed field | `old_value("rank_id")` |
+| `new_value(key)` | Get the new value of a changed field | `new_value("rank_id")` |
+| `blank(value)` | Check if a value is empty | `blank(model.notes)` |
+| `filled(value)` | Check if a value is not empty | `filled(model.discord_user_id)` |
+
+### Condition Examples
+
+**Run only when a user is approved:**
+```
+model.approved == true
+```
+
+**Run only when rank changes:**
+```
+changed("rank_id")
+```
+
+**Run only when rank increases:**
+```
+changed("rank_id") and new_value("rank_id") > old_value("rank_id")
+```
+
+**Run only for users with a specific email domain:**
+```
+ends_with(model.email, "@agency.gov")
+```
+
+**Run only when triggered by a specific user:**
+```
+causer != null and causer.id == 1
+```
+
+### Testing Conditions
+
+Before saving your automation, test your condition:
+
+1. Select a trigger to populate the available fields.
+2. Enter your condition expression.
+3. Select **Test** to evaluate the expression against sample data.
+4. Select **View Fields** to see all available fields for the selected trigger.
+5. Select **View Functions** to see all available functions.
+
+## Actions
+
+Actions define what happens when an automation triggers and conditions pass. Each automation performs one action.
+
+### Webhook Action
+
+Webhook actions send HTTP requests to external URLs, enabling integration with third-party services.
+
+1. Select **Send Webhook** as the action type.
+2. Choose an existing webhook from the dropdown.
+3. (Optional) Define a custom payload template using JSON and Twig syntax.
+
+If you don't specify a custom payload, the automation sends the full model data.
+
+> **Note:** Before creating a webhook automation, you must first create a webhook in **Integrations** > **Webhooks**.
+
+#### Custom Payload Templates
+
+Create custom JSON payloads using Twig template syntax. Use `{{ variable }}` to insert dynamic values.
+
+**Example: Discord webhook payload**
+```json
+{
+  "content": "New user registered: {{ model.name }}",
+  "username": "PERSCOM Bot"
+}
+```
+
+**Example: Custom integration payload**
+```json
+{
+  "event": "user_promoted",
+  "user": {
+    "id": "{{ model.id }}",
+    "name": "{{ model.name }}",
+    "email": "{{ model.email }}"
+  },
+  "promoted_by": "{{ causer.name }}"
+}
+```
+
+### Message Action
+
+Message actions create notifications sent through your configured notification channels.
+
+1. Select **Send Message** as the action type.
+2. Select one or more notification channels (Email, Database, Discord, SMS).
+3. Enter the message content using Twig syntax for dynamic values.
+4. (Optional) Specify a recipients expression to target specific users.
+
+#### Message Content
+
+Write your message content using Twig template syntax:
+
+```
+{{ model.name }} has been promoted to {{ model.rank.name }}.
+
+This change was made by {{ causer.name }}.
+```
+
+#### Recipients Expression
+
+Define who receives the message using an expression that returns user IDs:
+
+**Send to the affected user:**
+```
+model.id
+```
+
+**Send to the user's supervisor (for record models):**
+```
+model.user_id
+```
+
+**Send to multiple users:**
+```
+[model.id, causer.id]
+```
+
+**Conditional recipient:**
+```
+model.supervisor_id != null ? model.supervisor_id : causer.id
+```
+
+If left empty, the message uses the default notification behavior.
+
+## Twig Filters
+
+Use Twig filters to transform values in your templates. Apply filters using the pipe syntax: `{{ value | filter }}`.
+
+| Filter | Description | Example |
+|--------|-------------|---------|
+| `capitalize` | Capitalize the first character | `{{ model.name \| capitalize }}` |
+| `date` | Format a date | `{{ model.created_at \| date("Y-m-d") }}` |
+| `default` | Provide a fallback value | `{{ model.nickname \| default("N/A") }}` |
+| `escape` | Escape HTML entities | `{{ model.notes \| escape }}` |
+| `first` | Get the first array element | `{{ model.tags \| first }}` |
+| `join` | Join array elements | `{{ model.tags \| join(", ") }}` |
+| `last` | Get the last array element | `{{ model.tags \| last }}` |
+| `length` | Get string or array length | `{{ model.name \| length }}` |
+| `lower` | Convert to lowercase | `{{ model.name \| lower }}` |
+| `upper` | Convert to uppercase | `{{ model.name \| upper }}` |
+| `title` | Convert to title case | `{{ model.name \| title }}` |
+| `trim` | Remove surrounding whitespace | `{{ model.notes \| trim }}` |
+| `striptags` | Remove HTML tags | `{{ model.description \| striptags }}` |
+| `slice` | Extract a portion | `{{ model.notes \| slice(0, 100) }}` |
+| `replace` | Replace text | `{{ model.text \| replace({"foo": "bar"}) }}` |
+| `nl2br` | Convert newlines to HTML breaks | `{{ model.notes \| nl2br }}` |
+| `round` | Round a number | `{{ model.score \| round }}` |
+| `split` | Split string into array | `{{ model.tags_string \| split(",") }}` |
+
+## View Automation Logs
+
+Every automation execution is logged for debugging and auditing purposes.
+
+### Access Logs
+
+1. In the sidebar, select **Integrations** > **Automations**.
+2. Select an automation to view its details.
+3. Scroll down to the **Logs** section to see execution history.
+
+Alternatively, view all automation logs:
+
+1. In the sidebar, select **Integrations** > **Automations** > **Logs**.
+
+### Log Details
+
+Each log entry includes:
+
+| Field | Description |
+|-------|-------------|
+| Status | The execution result: Executed, Condition Failed, or Failed |
+| Trigger | The event that triggered the automation |
+| Subject | The record type and ID that triggered the event |
+| Execution Time | How long the automation took to run (in milliseconds) |
+| Executed At | When the automation ran |
+
+Select a log entry to view detailed information:
+
+- **Overview**: Status, timing, and error messages (if any)
+- **Subject**: The triggering record details and the user who caused the event
+- **Condition**: The expression evaluated and whether it passed
+- **Context**: The full data context available to the automation
+- **Action Result**: The payload sent or message created
+
+### Log Statuses
+
+| Status | Description |
+|--------|-------------|
+| Executed | The automation ran successfully |
+| Condition Failed | The condition expression evaluated to false; no action was taken |
+| Failed | An error occurred during execution |
+
+## Debugging Automations
+
+When an automation doesn't work as expected, use these strategies to diagnose the issue.
+
+### Check the Automation Is Enabled
+
+Disabled automations do not run. Verify the **Enabled** toggle is active on the automation's settings page.
+
+### Review Log Entries
+
+1. Open the automation and check the **Logs** section.
+2. Look for entries with **Failed** or **Condition Failed** status.
+3. Select a log entry to view the error message and context.
+
+### Test Your Condition
+
+1. Edit the automation and go to the **2. Condition** tab.
+2. Select **Test** to evaluate your expression against sample data.
+3. Select **View Fields** to verify you're using the correct field paths.
+
+### Verify Field Paths
+
+Field paths are case-sensitive. Use **View Fields** to see the exact structure of the context data, including:
+
+- Property names (e.g., `model.name`, not `model.Name`)
+- Nested relationships (e.g., `model.user.email`)
+- Available fields for the selected trigger type
+
+### Common Issues
+
+**Condition always fails:**
+- Verify the field path matches the actual data structure
+- Check for typos in field names
+- Ensure you're using the correct comparison operators
+
+**Webhook not received:**
+- Verify the webhook URL is correct and accessible
+- Check that the target service is running
+- Review the webhook configuration in **Integrations** > **Webhooks**
+
+**Message not delivered:**
+- Verify the notification channels are configured correctly
+- Check the recipients expression returns valid user IDs
+- Ensure users have the appropriate notification settings enabled
+
+### Preview Templates
+
+Before saving, preview your templates to catch errors:
+
+1. For webhooks: Select **Preview** next to the payload template field
+2. For messages: Select **Preview** next to the message content field
+
+The preview shows your template rendered with sample data from the selected trigger.
+
+## Best Practices
+
+- **Use descriptive names**: Name automations clearly so their purpose is obvious (e.g., "Notify Discord on User Promotion")
+- **Start with conditions**: Add conditions to prevent automations from running unnecessarily
+- **Test before enabling**: Use the test and preview features to verify your expressions and templates
+- **Monitor logs**: Regularly review automation logs to catch failures early
+- **Use priority**: Set priority values to control execution order when multiple automations share triggers
+- **Keep templates simple**: Complex templates are harder to debug; break complex workflows into multiple automations

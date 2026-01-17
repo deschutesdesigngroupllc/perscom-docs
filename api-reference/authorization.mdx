@@ -3,4 +3,261 @@ title: "Authorization"
 description: "Learn how to authorize requests to the PERSCOM API."
 ---
 
-Coming soon.
+The PERSCOM API uses scopes to control what actions an API key can perform. Scopes let you grant the minimum permissions necessary for each integration.
+
+## How Scopes Work
+
+Each API key has a set of assigned scopes that determine which endpoints and operations it can access. When you make a request, the API checks whether your key has the required scope for that endpoint.
+
+If the key lacks the required scope, the API returns a `403 Forbidden` response.
+
+## Scope Format
+
+Scopes follow the format `action:resource`:
+
+- **action** — The operation type: `view`, `create`, `update`, or `delete`
+- **resource** — The resource being accessed, such as `user`, `rank`, or `assignmentrecord`
+
+For example:
+- `view:user` — Read user data
+- `create:rank` — Create new ranks
+- `update:assignmentrecord` — Modify assignment records
+- `delete:award` — Remove awards
+
+## Configuring Scopes
+
+When creating an API key, you can either grant all scopes or select specific ones:
+
+1. Navigate to **Integrations** > **API Keys**.
+2. Select **New API key**.
+3. Choose one of the following:
+   - **All scopes** — Grants full access to all resources and operations
+   - **Specific scopes** — Select only the scopes your integration needs
+
+> **Important:** Follow the principle of least privilege. Only grant the scopes your integration actually requires.
+
+## Available Scopes
+
+<Tabs>
+  <Tab title="Personnel">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:user` | View user profiles |
+    | `create:user` | Create new users |
+    | `update:user` | Update user information |
+    | `delete:user` | Delete users |
+  </Tab>
+
+  <Tab title="Organization">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:group` | View groups |
+    | `create:group` | Create groups |
+    | `update:group` | Update groups |
+    | `delete:group` | Delete groups |
+    | `view:unit` | View units |
+    | `create:unit` | Create units |
+    | `update:unit` | Update units |
+    | `delete:unit` | Delete units |
+    | `view:position` | View positions |
+    | `create:position` | Create positions |
+    | `update:position` | Update positions |
+    | `delete:position` | Delete positions |
+    | `view:rank` | View ranks |
+    | `create:rank` | Create ranks |
+    | `update:rank` | Update ranks |
+    | `delete:rank` | Delete ranks |
+    | `view:specialty` | View specialties |
+    | `create:specialty` | Create specialties |
+    | `update:specialty` | Update specialties |
+    | `delete:specialty` | Delete specialties |
+    | `view:status` | View statuses |
+    | `create:status` | Create statuses |
+    | `update:status` | Update statuses |
+    | `delete:status` | Delete statuses |
+  </Tab>
+
+  <Tab title="Records">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:assignmentrecord` | View assignment records |
+    | `create:assignmentrecord` | Create assignment records |
+    | `update:assignmentrecord` | Update assignment records |
+    | `delete:assignmentrecord` | Delete assignment records |
+    | `view:awardrecord` | View award records |
+    | `create:awardrecord` | Create award records |
+    | `update:awardrecord` | Update award records |
+    | `delete:awardrecord` | Delete award records |
+    | `view:combatrecord` | View combat records |
+    | `create:combatrecord` | Create combat records |
+    | `update:combatrecord` | Update combat records |
+    | `delete:combatrecord` | Delete combat records |
+    | `view:qualificationrecord` | View qualification records |
+    | `create:qualificationrecord` | Create qualification records |
+    | `update:qualificationrecord` | Update qualification records |
+    | `delete:qualificationrecord` | Delete qualification records |
+    | `view:rankrecord` | View rank records |
+    | `create:rankrecord` | Create rank records |
+    | `update:rankrecord` | Update rank records |
+    | `delete:rankrecord` | Delete rank records |
+    | `view:servicerecord` | View service records |
+    | `create:servicerecord` | Create service records |
+    | `update:servicerecord` | Update service records |
+    | `delete:servicerecord` | Delete service records |
+    | `view:statusrecord` | View status records |
+    | `create:statusrecord` | Create status records |
+    | `update:statusrecord` | Update status records |
+    | `delete:statusrecord` | Delete status records |
+    | `view:trainingrecord` | View training records |
+    | `create:trainingrecord` | Create training records |
+    | `update:trainingrecord` | Update training records |
+    | `delete:trainingrecord` | Delete training records |
+  </Tab>
+
+  <Tab title="Awards & Qualifications">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:award` | View awards |
+    | `create:award` | Create awards |
+    | `update:award` | Update awards |
+    | `delete:award` | Delete awards |
+    | `view:qualification` | View qualifications |
+    | `create:qualification` | Create qualifications |
+    | `update:qualification` | Update qualifications |
+    | `delete:qualification` | Delete qualifications |
+  </Tab>
+
+  <Tab title="Forms">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:form` | View forms |
+    | `create:form` | Create forms |
+    | `update:form` | Update forms |
+    | `delete:form` | Delete forms |
+    | `view:field` | View form fields |
+    | `create:field` | Create form fields |
+    | `update:field` | Update form fields |
+    | `delete:field` | Delete form fields |
+    | `view:submission` | View form submissions |
+    | `create:submission` | Create form submissions |
+    | `update:submission` | Update form submissions |
+    | `delete:submission` | Delete form submissions |
+  </Tab>
+
+  <Tab title="Calendars & Events">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:calendar` | View calendars |
+    | `create:calendar` | Create calendars |
+    | `update:calendar` | Update calendars |
+    | `delete:calendar` | Delete calendars |
+    | `view:event` | View events |
+    | `create:event` | Create events |
+    | `update:event` | Update events |
+    | `delete:event` | Delete events |
+  </Tab>
+
+  <Tab title="Content">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:announcement` | View announcements |
+    | `create:announcement` | Create announcements |
+    | `update:announcement` | Update announcements |
+    | `delete:announcement` | Delete announcements |
+    | `view:newsfeed` | View newsfeed items |
+    | `create:newsfeed` | Create newsfeed items |
+    | `update:newsfeed` | Update newsfeed items |
+    | `delete:newsfeed` | Delete newsfeed items |
+    | `view:document` | View documents |
+    | `create:document` | Create documents |
+    | `update:document` | Update documents |
+    | `delete:document` | Delete documents |
+  </Tab>
+
+  <Tab title="Tasks">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:task` | View tasks |
+    | `create:task` | Create tasks |
+    | `update:task` | Update tasks |
+    | `delete:task` | Delete tasks |
+  </Tab>
+
+  <Tab title="Other">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:attachment` | View attachments |
+    | `create:attachment` | Create attachments |
+    | `update:attachment` | Update attachments |
+    | `delete:attachment` | Delete attachments |
+    | `view:category` | View categories |
+    | `create:category` | Create categories |
+    | `update:category` | Update categories |
+    | `delete:category` | Delete categories |
+    | `view:comment` | View comments |
+    | `create:comment` | Create comments |
+    | `update:comment` | Update comments |
+    | `delete:comment` | Delete comments |
+    | `view:competency` | View competencies |
+    | `create:competency` | Create competencies |
+    | `update:competency` | Update competencies |
+    | `delete:competency` | Delete competencies |
+    | `view:credential` | View credentials |
+    | `create:credential` | Create credentials |
+    | `update:credential` | Update credentials |
+    | `delete:credential` | Delete credentials |
+    | `view:image` | View images |
+    | `create:image` | Create images |
+    | `update:image` | Update images |
+    | `delete:image` | Delete images |
+    | `view:issuer` | View issuers |
+    | `create:issuer` | Create issuers |
+    | `update:issuer` | Update issuers |
+    | `delete:issuer` | Delete issuers |
+    | `view:message` | View messages |
+    | `create:message` | Create messages |
+    | `update:message` | Update messages |
+    | `delete:message` | Delete messages |
+    | `view:slot` | View slots |
+    | `create:slot` | Create slots |
+    | `update:slot` | Update slots |
+    | `delete:slot` | Delete slots |
+  </Tab>
+
+  <Tab title="System">
+    | Scope | Description |
+    |-------|-------------|
+    | `view:settings` | View application settings |
+    | `clear:cache` | Clear the API cache |
+  </Tab>
+</Tabs>
+
+## Authorization Errors
+
+If your API key lacks the required scope, the API returns a `403 Forbidden` response:
+
+```json
+{
+  "error": {
+    "message": "The API key provided does not have the correct permissions and/or scopes to perform the requested action.",
+    "type": "HttpException",
+    "request_id": "550e8400-e29b-41d4-a716-446655440000",
+    "trace_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  }
+}
+```
+
+To resolve this error:
+
+1. Check which scope the endpoint requires (refer to the endpoint documentation)
+2. Navigate to **Integrations** > **API Keys**
+3. Create a new API key with the required scope, or use a key that already has it
+
+> **Note:** You cannot modify scopes on an existing API key. Create a new key with the correct scopes instead.
+
+## Best Practices
+
+- **Use specific scopes** — Avoid granting all scopes unless necessary
+- **Create separate keys** — Use different API keys for different integrations
+- **Review regularly** — Audit your API keys and revoke unused ones
+- **Document your keys** — Use descriptive names to track what each key is used for

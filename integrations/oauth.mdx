@@ -1,8 +1,85 @@
 ---
 title: "OAuth 2.0"
-description: "For seamless application-to-application integration with PERSCOM."
+description: "Enable secure authentication between your applications and PERSCOM."
 ---
 
-OAuth 2.0 is an industry-standard authorization framework that allows a third-party application to access a user's data, hosted by a service provider, without the user having to share their password or other sensitive information. It enables users to grant limited access to their data on a specific service to other applications, promoting security and privacy.
+OAuth 2.0 is an industry-standard authorization framework that allows third-party applications to access user data without requiring users to share their passwords. PERSCOM supports OAuth 2.0 and OpenID Connect (OIDC) for secure application integration.
 
+## Use Cases
 
+OAuth 2.0 enables you to:
+
+- Build applications that authenticate users with their PERSCOM credentials
+- Access the PERSCOM API on behalf of users
+- Create single sign-on (SSO) experiences across your services
+- Integrate PERSCOM with third-party platforms
+
+## Client Types
+
+PERSCOM supports four OAuth 2.0 grant types. Select the type that matches your application:
+
+| Type | Use case |
+|------|----------|
+| Regular Web Application | Server-side applications where users are redirected to authorize access. Uses the authorization code grant. |
+| Single Page / Native Application | Client-side applications like SPAs or mobile apps. Uses the implicit grant. |
+| Machine-to-Machine | Server applications that access resources without user involvement. Uses the client credentials grant. |
+| Resource Owner | Trusted applications where users provide credentials directly. Uses the password grant. |
+
+## Create An OAuth Client
+
+1. In the sidebar, select **Integrations** > **Clients**.
+2. Select **New client**.
+3. Enter a **Name** to identify the client.
+4. Select the **Type** that matches your application.
+5. For web applications, enter the **Redirect URL** where users return after authorization.
+6. (Optional) Enter a **Description** for the client.
+7. Configure **Scopes** to limit what data the client can access, or select **All scopes** for full access.
+8. Select **Create**.
+
+After creating the client, you receive a **Client ID** and **Client Secret**. Store the client secret securely—it cannot be retrieved later.
+
+> **Important:** Keep your client secret confidential. Never expose it in client-side code or public repositories.
+
+## Endpoints
+
+After creating a client, view the **Endpoints** tab to find the URLs for your integration:
+
+| Endpoint | Description |
+|----------|-------------|
+| Discovery Endpoint | OpenID Connect discovery document with configuration details |
+| Authorization Endpoint | Redirect users here to begin the authorization flow |
+| Token Endpoint | Exchange authorization codes for access tokens |
+| Logout Endpoint | End user sessions |
+| User Info Endpoint | Retrieve authenticated user information |
+
+## Authorization Code Flow
+
+For server-side web applications, use the authorization code flow:
+
+1. Redirect users to the **Authorization Endpoint** with your client ID, redirect URI, and requested scopes.
+2. Users authenticate with PERSCOM and approve access.
+3. PERSCOM redirects users back to your redirect URI with an authorization code.
+4. Exchange the authorization code for an access token at the **Token Endpoint**.
+5. Use the access token to make API requests on behalf of the user.
+
+## Scopes
+
+Scopes limit what data and actions a client can access. When creating a client, you can select specific scopes or grant access to all scopes.
+
+Common scopes include:
+
+- `view:users` - Read user data
+- `create:users` - Create new users
+- `update:users` - Modify user data
+- `delete:users` - Remove users
+
+For a complete list of available scopes, see the scope selector when creating or editing a client.
+
+## Revoke Access
+
+To revoke a client's access:
+
+1. In the sidebar, select **Integrations** > **Clients**.
+2. Find the client and toggle the **Revoked** switch.
+
+Revoking a client immediately invalidates all access tokens issued to that client.

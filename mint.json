@@ -74,7 +74,7 @@
     },
     {
       "group": "Guides",
-      "pages": ["guides/introduction"]
+      "pages": ["guides/introduction", "guides/integrations"]
     },
     {
       "group": "Integrations",
@@ -84,18 +84,19 @@
       "group": "First Party",
       "pages": [
         "integrations/api",
+        "integrations/automations",
         "integrations/forums",
         "integrations/oauth",
         {
           "group": "SDKs",
           "pages": ["integrations/sdk/php"]
         },
-        "integrations/webhooks",
-        "integrations/widgets",
         {
           "group": "Third Party",
           "pages": ["integrations/third-party/discord"]
-        }
+        },
+        "integrations/webhooks",
+        "integrations/widgets"
       ]
     },
     {

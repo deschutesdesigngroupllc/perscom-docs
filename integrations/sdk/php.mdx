@@ -1,18 +1,17 @@
 ---
 title: 'PHP'
-description: 'Integrating with PERSCOM using PHP.'
+description: 'Build PERSCOM integrations with the official PHP SDK.'
 ---
 
-PERSCOM offers an official first-party PHP SDK to assist developers with integrating with PERSCOM. To build you next integration, check it
-out on GitHub!
+PERSCOM offers an official PHP SDK to help developers integrate with the PERSCOM API. The SDK provides a fluent interface for all API operations.
 
-<Card title="Visit GitHub" icon="github" href="https://github.com/deschutesdesigngroupllc/perscom-php-sdk">
-  Checkout the official PERSCOM PHP SDK.
+<Card title="View on GitHub" icon="github" href="https://github.com/deschutesdesigngroupllc/perscom-php-sdk">
+  Explore the official PERSCOM PHP SDK repository.
 </Card>
 
 ## Installation
 
-Install the SDK with composer using the following command.
+Install the SDK using Composer:
 
 ```bash
 composer require deschutesdesigngroupllc/perscom-php-sdk
@@ -20,7 +19,7 @@ composer require deschutesdesigngroupllc/perscom-php-sdk
 
 ## Getting Started
 
-The following is a brief overview of how the PHP SDK is structured on a functional level. Each of these examples can be applied to the vast array of PERSCOM resources available. The SDK is built on the PERSCOM API and is seeks to follow the same naming conventions as the API to reduce confusion.
+The SDK follows the same naming conventions as the PERSCOM API. The examples below demonstrate common operations that apply to all available resources.
 
 ```php
 // The following are examples on the user resource, but the same principles
@@ -98,7 +97,7 @@ $data = $response->json();
 
 ## Error Handling
 
-The PERSCOM SDK throws exceptions when an API error occurs. You can catch these exceptions and handle them accordingly with a standard \`try/catch\` block. For a more elegant approach to error handling, consider using the \[promise-based]\(#promise-support) approach.
+The PERSCOM SDK throws exceptions when an API error occurs. Catch these exceptions with a standard `try/catch` block. For a more elegant approach, consider using the [promise-based](#promise-support) approach.
 
 ```php
 try {
@@ -112,14 +111,14 @@ try {
 
 ## Promise Support
 
-The PERSCOM SDK can send asynchronous requests using a promise-based approach. This allows you to handle both successful and failed requests in a more fluent way.
+The PERSCOM SDK supports asynchronous requests using a promise-based approach. This allows you to handle successful and failed requests more fluently.
 
 ```php
 // Create a PERSCOM instance
 $perscom = new PerscomConnection('YOUR_API_KEY');
 
 // Create a promise
-$promise = $plaid->sendAsync(new GetAllUsersRequest());
+$promise = $perscom->sendAsync(new GetAllUsersRequest());
 
 // Send the request
 $promise

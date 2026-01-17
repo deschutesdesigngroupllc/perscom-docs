@@ -1,17 +1,21 @@
 ---
 title: "Widgets"
-description: "Integrate the PERSCOM UI into any website."
+description: "Embed PERSCOM data displays on any website."
 ---
 
-PERSCOM.io offers powerful widgets that allow the integration of your organizational data into another website for display. Each widget is a snippet of HTML that can be injected into your website.
+Widgets display your PERSCOM organizational data on external websites. Each widget is an HTML snippet that renders a visual component such as a roster, calendar, or awards list.
 
-## Demo
+## Preview Widgets
 
-If you'd like to try the widgets out before using them on your website, you can preview every widget from within your own PERSCOM dashboard. Visit the **Widgets** section under **Integrations** section for more information.
+Preview widgets before adding them to your website:
+
+1. In the sidebar, select **Integrations** > **Widgets**.
+2. Select **Choose Widget** to switch between available widgets.
+3. Use **Get Widget Code** to generate the embed code.
 
 ## Installation
 
-To start using the PERSCOM widget, copy and paste the following HTML snippet into your website. Make sure to **replace** `APIKEY` with your own API key. Replace the [widget ID](#available-widgets) with ID you'd like to display.
+Copy and paste the HTML snippet below into your website. Replace `APIKEY` with your API key and set the `data-widget` attribute to the [widget ID](#available-widgets) you want to display.
 
 <CodeGroup>
 
@@ -163,15 +167,15 @@ A few widgets support the ability to provide an identifier to retrieve a specifi
 </div>
 ```
 
-## Advanced
+## Advanced Usage
 
-The information below is for users who have experience in software development and provide option for advanced usage of the widgets.
+The following examples demonstrate advanced widget integration techniques for developers.
 
-### Alpine.js
+### Alpine.js Integration
 
-Alpine is a rugged, minimal tool for composing behavior directly in your markup. Think of it like jQuery for the modern web. Plop in a script tag and get going. The widgets can be injected into the page using a dynamic approach that allows for logic to be run before the widget is rendered.
+[Alpine.js](https://alpinejs.dev/) provides a lightweight way to add dynamic behavior to your HTML. Use Alpine to conditionally configure widgets based on your page state.
 
-In this example, we can check if `dark` mode is enabled on the parent web page. If it is, we render the widget with `data-dark='true'` enabled.
+This example detects dark mode on the parent page and enables dark mode on the widget:
 
 ```js
 <div x-data="{
@@ -194,9 +198,9 @@ In this example, we can check if `dark` mode is enabled on the parent web page. 
 </div>
 ```
 
-### Navigation
+### Programmatic Navigation
 
-You may programmatically force the widget to navigate to a new URL by dispatching a browser based event. This is how we, for example, open a form when the button is clicked. The iframe that renders the widget listens for events and will force the iframe to navigate using the information provided in the event payload. See the example below.
+Navigate the widget to a different view by dispatching a browser event. The widget iframe listens for these events and updates its content accordingly.
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
