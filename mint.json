@@ -74,7 +74,14 @@
     },
     {
       "group": "Guides",
-      "pages": ["guides/introduction", "guides/integrations"]
+      "pages": [
+        "guides/introduction",
+        "guides/integrations"
+      ]
+    },
+    {
+      "group": "Data Management",
+      "pages": ["guides/custom-fields", "guides/forms"]
     },
     {
       "group": "Integrations",

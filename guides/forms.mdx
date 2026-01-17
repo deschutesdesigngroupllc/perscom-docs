@@ -1,0 +1,109 @@
+---
+title: "Forms"
+description: "Create custom forms to collect information from your personnel."
+---
+
+Forms allow you to collect structured data from users through customizable input fields. Use forms for applications, requests, surveys, feedback, and any other data collection needs.
+
+## Use Cases
+
+- **Applications** — Enlistment, transfer, or leave request forms
+- **Requests** — Equipment requests, time-off requests, or support tickets
+- **Surveys** — Feedback forms, after-action reviews, or polls
+- **Reports** — Incident reports, activity logs, or status updates
+
+## Create A Form
+
+1. In the sidebar, select **Forms**.
+2. Select **New form**.
+3. Configure the form settings:
+   - **Name** — The form title displayed to users
+   - **Slug** — URL-friendly identifier (auto-generated from name)
+   - **Category** — Optional grouping for organization
+   - **Description** — Brief explanation of the form's purpose
+   - **Instructions** — Guidance for users filling out the form
+   - **Public** — Enable to allow submissions from guests (non-logged-in users)
+4. Select **Create**.
+
+## Add Fields To A Form
+
+Forms use [custom fields](/guides/custom-fields) to define their input structure. After creating a form:
+
+1. Select the form to open it.
+2. Select the **Fields** tab.
+3. Select **Add field** and choose existing fields, or select **New field** to create one.
+4. Drag fields to reorder them as needed.
+
+> **Tip:** Create reusable fields in **Settings** > **Resources** > **Fields** to use across multiple forms. See the [Custom Fields](/guides/custom-fields) guide for details on field types and configuration.
+
+## Configure Submission Settings
+
+Control what happens when users submit the form:
+
+1. Edit the form and select the **Submission** tab.
+2. Configure the settings:
+   - **Status** — The default status assigned to new submissions (e.g., "Pending Review")
+   - **Message** — Success message displayed after submission
+
+### Submission Statuses
+
+Create statuses to track submission progress through your workflow:
+
+1. Navigate to **Statuses** and create statuses like "Pending", "Approved", or "Denied".
+2. Assign a default status to your form.
+3. Update submission statuses as you process them.
+
+## Configure Notifications
+
+Send notifications when forms are submitted:
+
+1. Edit the form and select the **Notifications** tab.
+2. Enable notifications and configure:
+   - **Channels** — Email, Discord, SMS, or in-app notifications
+   - **Recipients** — Who receives the notification
+
+## Manage Submissions
+
+View and process form submissions:
+
+1. In the sidebar, select **Submissions**.
+2. Select a submission to view its details.
+3. Update the status, add comments, or take action as needed.
+
+### Submission Details
+
+Each submission includes:
+
+- **User** — Who submitted the form (or "Guest" for public submissions)
+- **Form** — Which form was submitted
+- **Status** — Current workflow status
+- **Data** — All field responses
+- **Comments** — Discussion thread for reviewers
+- **Timestamps** — When submitted and last updated
+
+## Embed Forms
+
+Share forms with your organization:
+
+### Internal Forms
+
+Users access forms through the PERSCOM dashboard. Link directly to a form using its URL:
+
+```
+https://your-organization.perscom.io/forms/{slug}
+```
+
+### Public Forms
+
+Enable the **Public** toggle to allow guest submissions. Share the public URL for access without login.
+
+> **Note:** Public forms don't associate submissions with user accounts. Use them for anonymous feedback or external applications.
+
+## Best Practices
+
+- **Use clear names** — Choose descriptive form names that indicate their purpose
+- **Write instructions** — Help users understand what information you need
+- **Organize with categories** — Group related forms for easier navigation
+- **Set default statuses** — Establish a consistent starting point for your workflow
+- **Configure notifications** — Ensure the right people are alerted to new submissions
+- **Reuse fields** — Create fields once and attach them to multiple forms for consistency

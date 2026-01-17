@@ -1,0 +1,183 @@
+---
+title: "Custom Fields"
+description: "Extend PERSCOM with custom fields to collect additional data on users, records, and forms."
+---
+
+Custom fields let you capture data beyond the built-in fields in PERSCOM. Add fields to user profiles, personnel records, and forms to track information specific to your organization.
+
+## Use Cases
+
+- **User profiles** — Track additional personnel data like certifications, specializations, or emergency contacts
+- **Personnel records** — Add context to assignment, award, or training records with custom metadata
+- **Forms** — Build application forms, surveys, or request forms with custom input fields
+
+## Create A Custom Field
+
+1. In the sidebar, select **Settings** > **Resources** > **Fields**.
+2. Select **New field**.
+3. Configure the field settings:
+   - **Name** — The label displayed to users
+   - **Slug** — A unique identifier used when saving data (auto-generated from name)
+   - **Type** — The input type (see [Field Types](#field-types))
+4. Configure optional settings in the **Details**, **Validation**, and **Visibility** tabs.
+5. Select **Create**.
+
+## Field Types
+
+<Tabs>
+  <Tab title="Text Input">
+    | Type | Description |
+    |------|-------------|
+    | Text | Single-line text input |
+    | Textarea | Multi-line text input |
+    | Email | Email address with validation |
+    | Number | Numeric input |
+    | Password | Masked password input |
+    | Code | Code editor with syntax highlighting |
+  </Tab>
+
+  <Tab title="Selection">
+    | Type | Description |
+    |------|-------------|
+    | Select | Dropdown with custom or resource-based options |
+    | Boolean | Checkbox for true/false values |
+    | Country | Dropdown of countries |
+    | Timezone | Dropdown of timezones |
+  </Tab>
+
+  <Tab title="Date & Time">
+    | Type | Description |
+    |------|-------------|
+    | Date | Date picker |
+    | Datetime | Date and time picker |
+  </Tab>
+
+  <Tab title="Other">
+    | Type | Description |
+    |------|-------------|
+    | Color | Color picker |
+    | File | File upload |
+  </Tab>
+
+  <Tab title="Components">
+    | Type | Description |
+    |------|-------------|
+    | Text | Static HTML content (display only, not an input) |
+  </Tab>
+</Tabs>
+
+## Configure Select Options
+
+When using the **Select** field type, you can populate options from two sources:
+
+### Custom Options
+
+Define a static list of key-value pairs:
+
+1. Select **Array** as the options type.
+2. Add options using the key-value editor.
+   - **Key** — The value stored in the database
+   - **Value** — The label displayed to users
+
+### Resource Options
+
+Dynamically populate options from PERSCOM resources:
+
+1. Select **Resource** as the options type.
+2. Choose a resource from the dropdown:
+   - Awards, Calendars, Documents, Events
+   - Forms, Groups, Positions, Qualifications
+   - Ranks, Slots, Specialties, Statuses
+   - Tasks, Units, Users
+
+The dropdown automatically updates when resources are added or removed.
+
+## Field Settings
+
+### Details Tab
+
+| Setting | Description |
+|---------|-------------|
+| Placeholder | Text displayed when the field is empty |
+| Help | Helper text displayed below the field |
+| True Value | Label for true state (boolean fields only) |
+| False Value | Label for false state (boolean fields only) |
+
+### Validation Tab
+
+| Setting | Description |
+|---------|-------------|
+| Rules | Laravel validation rules (pipe-delimited) |
+| Required | Field must be filled out |
+| Readonly | Field displays value but cannot be edited |
+
+**Common validation rules:**
+
+- `min:3` — Minimum 3 characters
+- `max:100` — Maximum 100 characters
+- `regex:/^[A-Z]+$/` — Must match pattern
+- `url` — Must be a valid URL
+- `digits:5` — Must be exactly 5 digits
+
+For a complete list, see the [Laravel validation documentation](https://laravel.com/docs/validation#available-validation-rules).
+
+### Visibility Tab
+
+| Setting | Description |
+|---------|-------------|
+| Hidden | Field only visible to users with edit permissions |
+
+## Add Fields To Users
+
+Attach custom fields directly to user profiles:
+
+1. Navigate to a user's profile and select **Edit**.
+2. Select the **Fields** tab.
+3. Select **Add field** and choose the fields to attach.
+
+Custom field data appears on the user's profile and can be edited by users with appropriate permissions.
+
+## Add Fields To Forms
+
+Build custom forms using your fields:
+
+1. Navigate to **Forms** and select a form.
+2. Select the **Fields** tab.
+3. Select **Add field** and choose the fields to include.
+4. Drag fields to reorder them.
+
+When users submit the form, their responses are saved with the submission.
+
+## Add Fields To Records
+
+Apply custom fields globally to all records of a specific type:
+
+1. Navigate to **Settings** > **Dashboard** > **Fields**.
+2. Select the record type tab (Assignment, Award, Combat, etc.).
+3. Select the custom fields to include.
+4. Select **Save**.
+
+The selected fields appear on all record forms of that type.
+
+## API Access
+
+Custom field data is included in API responses at the root level, keyed by the field's slug.
+
+```json
+{
+  "data": {
+    "id": 1,
+    "name": "John Doe",
+    "certification_number": "ABC123",
+    "emergency_contact": "Jane Doe"
+  }
+}
+```
+
+## Best Practices
+
+- **Use descriptive names** — Choose clear field names that indicate what data to enter
+- **Set appropriate types** — Use email type for emails, number for numeric data, etc.
+- **Add help text** — Guide users on expected input format or requirements
+- **Limit required fields** — Only require fields that are truly essential
+- **Use slugs consistently** — Keep slugs lowercase with underscores for API compatibility
