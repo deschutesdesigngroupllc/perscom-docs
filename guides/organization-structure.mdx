@@ -1,0 +1,319 @@
+---
+title: "Organization Structure"
+description: "Understand how groups, units, positions, ranks, and slots work together to define your organization."
+---
+
+PERSCOM uses a hierarchical structure to represent your organization. Understanding how these components relate to each other is essential for setting up your roster and managing personnel effectively.
+
+## Overview
+
+The organization structure consists of several interconnected resources:
+
+```
+Groups
+└── Units
+    └── Slots (manual roster only)
+        └── Users (via Assignment Records)
+
+Users
+├── Rank
+├── Position
+├── Specialty
+├── Status
+└── Unit
+```
+
+## Core Resources
+
+### Groups
+
+Groups are the top-level containers in your organization. They represent major divisions, departments, or branches.
+
+**Examples:** Infantry Division, Fire Department, Patrol Division, Medical Corps
+
+**Key features:**
+- Groups contain units
+- Groups can be hidden from the roster
+- Groups are displayed in a custom order
+- A unit can belong to multiple groups
+
+**Create a group:**
+
+1. Navigate to **Groups** and select **New group**.
+2. Enter a **Name** and optional **Description**.
+3. Set the **Order** to control display position.
+4. Select **Create**.
+
+### Units
+
+Units are organizational subdivisions within groups. They represent teams, squads, platoons, stations, or any other sub-organization.
+
+**Examples:** Alpha Squad, Engine Company 1, K-9 Unit, Trauma Team
+
+**Key features:**
+- Units belong to one or more groups
+- Users are assigned to units
+- Units can have slots attached (for manual rosters)
+- Units can be nested conceptually through naming conventions
+- Units can be hidden from the roster
+
+**Create a unit:**
+
+1. Navigate to **Units** and select **New unit**.
+2. Enter a **Name** and optional **Description**.
+3. Select **Create**.
+4. Edit the unit and attach it to one or more **Groups**.
+
+### Positions
+
+Positions define roles or job titles within your organization. They are independent of the unit structure and can be used across any unit.
+
+**Examples:** Squad Leader, Driver, Paramedic, Watch Commander, Rifleman
+
+**Key features:**
+- Positions are assigned directly to users
+- Positions can be pre-assigned to slots (for manual rosters)
+- Positions affect roster sort order
+- Positions can be organized into categories
+
+**Create a position:**
+
+1. Navigate to **Positions** and select **New position**.
+2. Enter a **Name** and optional **Description**.
+3. Set the **Order** to control roster sorting.
+4. Select **Create**.
+
+### Ranks
+
+Ranks represent the hierarchical level of personnel. They typically determine seniority and are used for roster sorting.
+
+**Examples:** Private, Sergeant, Captain, Chief, Director
+
+**Key features:**
+- Ranks are assigned directly to users
+- Ranks have an order that affects roster sorting
+- Ranks can have images (insignia)
+- Ranks can have abbreviations and paygrades
+- Ranks can be organized into categories
+
+**Create a rank:**
+
+1. Navigate to **Ranks** and select **New rank**.
+2. Enter a **Name**, **Abbreviation**, and optional **Paygrade**.
+3. Set the **Order** (lower numbers = higher rank).
+4. Upload an **Image** for the rank insignia.
+5. Select **Create**.
+
+### Specialties
+
+Specialties represent additional qualifications, skills, or secondary roles that personnel hold.
+
+**Examples:** Sniper, Hazmat Certified, Flight Medic, K-9 Handler
+
+**Key features:**
+- Specialties are assigned directly to users
+- Specialties can be pre-assigned to slots (for manual rosters)
+- Specialties are separate from positions
+- Specialties can be organized into categories
+
+### Statuses
+
+Statuses indicate the current state or availability of personnel.
+
+**Examples:** Active, On Leave, Deployed, Inactive, Probationary
+
+**Key features:**
+- Statuses are assigned directly to users
+- Statuses can have colors for visual distinction
+- Statuses appear on the roster and user profiles
+
+## Roster Modes
+
+PERSCOM supports two roster modes that determine how personnel are displayed and organized.
+
+### Automatic Roster
+
+The automatic roster displays personnel based on their direct unit assignment and sorts them according to configured criteria.
+
+**How it works:**
+1. Users are assigned directly to a unit, position, rank, and specialty
+2. The roster displays all users in each unit
+3. Users are sorted by the configured roster sort order (e.g., rank, then position, then name)
+
+**Best for:**
+- Simple organizational structures
+- Organizations where positions don't have fixed "seats"
+- Quick setup with minimal configuration
+
+**Setup:**
+1. Navigate to **Settings** > **Dashboard** > **Roster**.
+2. Set **Roster Mode** to **Automatic**.
+3. Configure the **Sort Order** (e.g., Rank → Position → Name).
+
+### Manual Roster
+
+The manual roster uses **Slots** to define specific positions within each unit. Users are assigned to slots rather than directly to units.
+
+**How it works:**
+1. Create slots that define positions within the organization
+2. Attach slots to units (creating a UnitSlot)
+3. Assign users to specific unit slots via assignment records
+4. The roster displays slots in order, showing who fills each one
+
+**Best for:**
+- Military-style organizations with fixed billets
+- Organizations with specific "seats" that need to be filled
+- Displaying vacancies and organizational capacity
+- Complex structures requiring precise placement
+
+**Setup:**
+1. Navigate to **Settings** > **Dashboard** > **Roster**.
+2. Set **Roster Mode** to **Manual**.
+3. Create slots and attach them to units.
+4. Assign users to unit slots.
+
+## Slots (Manual Roster)
+
+Slots are placeholders that define positions within units. They're only used when the roster mode is set to **Manual**.
+
+### Understanding Slots vs. Unit Slots
+
+- **Slot** — A reusable template defining a position (e.g., "Squad Leader")
+- **Unit Slot** — A specific instance of a slot attached to a unit (e.g., "Squad Leader in Alpha Squad")
+
+This distinction allows you to:
+- Reuse the same slot definition across multiple units
+- Track exactly where each user is assigned
+- Show vacancies when slots are unfilled
+
+### Create A Slot
+
+1. Navigate to **Slots** and select **New slot**.
+2. Enter a **Name** (e.g., "Squad Leader", "Rifleman", "Driver").
+3. Optionally assign a default **Position** and **Specialty**.
+4. Set the **Order** to control display position within units.
+5. Select **Create**.
+
+### Attach Slots To Units
+
+1. Navigate to **Units** and select a unit.
+2. Select the **Slots** tab.
+3. Select **Add slot** and choose slots to attach.
+4. Reorder slots by dragging them.
+
+Each attachment creates a **Unit Slot** — a specific "seat" in that unit.
+
+### Assign Users To Unit Slots
+
+When using manual roster mode, you assign users to specific unit slots through assignment records:
+
+1. Navigate to a user's profile.
+2. Go to **Records** > **Assignment Records**.
+3. Select **New assignment record**.
+4. Select the **Unit Slot** (this will show as "Slot Name - Unit Name").
+5. The position and specialty from the slot are automatically applied.
+6. Select **Create**.
+
+> **Note:** When you select a unit slot, the unit, position, and specialty are automatically populated from the slot's configuration.
+
+## Assignment Records
+
+Assignment records track a user's placement within the organization. They support both primary and secondary assignments.
+
+### Primary Assignments
+
+A user's primary assignment is their main organizational placement. It determines:
+- Which unit they belong to
+- Their position and specialty
+- Where they appear on the roster
+
+Each user can have one active primary assignment.
+
+### Secondary Assignments
+
+Secondary assignments allow users to hold additional roles in other units without leaving their primary assignment.
+
+**Examples:**
+- A squad leader who also serves on a training committee
+- A firefighter assigned to a special response team
+- An officer with a secondary staff position
+
+Secondary assignments:
+- Appear on the roster in the secondary unit (marked as secondary)
+- Don't change the user's primary unit assignment
+- Allow personnel to be listed in multiple places
+
+### Create An Assignment Record
+
+1. Navigate to a user's profile.
+2. Go to **Records** > **Assignment Records**.
+3. Select **New assignment record**.
+4. Choose the **Type**: Primary or Secondary.
+5. Select the **Unit** (automatic roster) or **Unit Slot** (manual roster).
+6. Fill in **Position**, **Specialty**, and **Status** as needed.
+7. Add optional notes in the **Text** field.
+8. Select **Create**.
+
+## Assigning Users
+
+How you assign users depends on your roster mode.
+
+### Automatic Roster Assignment
+
+For automatic rosters, assign users directly:
+
+1. Navigate to the user's profile and select **Edit**.
+2. Set the **Unit**, **Position**, **Rank**, **Specialty**, and **Status**.
+3. Select **Save**.
+
+Alternatively, create an assignment record to track the history of assignments.
+
+### Manual Roster Assignment
+
+For manual rosters, assign users to unit slots:
+
+1. Navigate to the user's profile.
+2. Go to **Records** > **Assignment Records**.
+3. Select **New assignment record**.
+4. Select the appropriate **Unit Slot**.
+5. Select **Create**.
+
+The user will appear in that slot on the roster.
+
+## Roster Sort Order
+
+Configure how personnel are sorted within each unit:
+
+1. Navigate to **Settings** > **Dashboard** > **Roster**.
+2. Configure the **Sort Order** by dragging fields.
+
+Common sort orders:
+- **Rank → Position → Name** — Military-style by seniority
+- **Position → Rank → Name** — By role, then seniority
+- **Name** — Alphabetical
+
+## Best Practices
+
+### Planning Your Structure
+
+1. **Map your organization first** — Sketch out groups, units, and positions before creating them in PERSCOM
+2. **Use consistent naming** — Establish naming conventions for units and positions
+3. **Consider your roster mode early** — Switching between automatic and manual requires restructuring assignments
+
+### Groups & Units
+
+- **Keep groups broad** — Use groups for major divisions, not small teams
+- **Use units for teams** — Units should represent the smallest organizational element
+- **Attach units to multiple groups** — A unit can appear under different groups if needed
+
+### Positions & Ranks
+
+- **Separate positions from ranks** — Positions are roles; ranks are seniority levels
+- **Order matters** — Set position and rank order carefully for proper roster sorting
+- **Use categories** — Organize positions and ranks into categories for easier management
+
+### Slots (Manual Roster)
+
+- **Create reusable slots** — Define slots generically (e.g., "Rifleman") to use across units
+- **Pre-assign positions** — Set default positions on slots to auto-populate assignment records
+- **Show vacancies** — Unfilled slots indicate open positions in your organization

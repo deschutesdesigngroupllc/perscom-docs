@@ -1,0 +1,282 @@
+---
+title: "Roles & Permissions"
+description: "Control access to PERSCOM features using roles and permissions."
+---
+
+PERSCOM uses role-based access control (RBAC) to manage what users can see and do within the application. Assign roles to users to grant them specific permissions across the system.
+
+## How It Works
+
+The permission system has three main components:
+
+- **Permissions** — Individual actions users can perform (e.g., "view users", "create ranks")
+- **Roles** — Collections of permissions grouped together (e.g., "Admin", "Recruiter", "Member")
+- **Users** — Have one or more roles assigned, granting them all permissions from those roles
+
+```
+User → Role(s) → Permission(s) → Access
+```
+
+## Default Roles
+
+PERSCOM includes one built-in role:
+
+| Role | Description |
+|------|-------------|
+| **Admin** | Full access to all features and settings. Cannot be modified or deleted. |
+
+The Admin role is a "super admin" that automatically has all permissions. At least one user should always have this role.
+
+## Permission Types
+
+Permissions are automatically generated for three categories:
+
+### Resource Permissions
+
+Control access to data and records. Each resource has multiple permission levels:
+
+| Permission | Description |
+|------------|-------------|
+| `view_any` | View the list of records |
+| `view` | View individual record details |
+| `create` | Create new records |
+| `update` | Edit existing records |
+| `delete` | Delete records |
+| `restore` | Restore soft-deleted records |
+| `force_delete` | Permanently delete records |
+| `reorder` | Change the order of records |
+
+**Example:** A user with `view_any_user` and `view_user` can browse and view user profiles, but cannot create, edit, or delete users.
+
+### Page Permissions
+
+Control access to specific pages in the application:
+
+| Permission | Description |
+|------------|-------------|
+| `view_calendar` | Access the calendar page |
+| `view_roster` | Access the roster page |
+| `view_forms` | Access the forms page |
+| `view_widgets` | Access the widgets page |
+
+### Widget Permissions
+
+Control which dashboard widgets users can see:
+
+| Permission | Description |
+|------------|-------------|
+| `view_calendar_widget` | See the calendar widget |
+| `view_recent_records_widget` | See recent records widget |
+| `view_organization_info_widget` | See organization info widget |
+
+## Create A Custom Role
+
+1. Navigate to **Settings** > **Users** > **Roles**.
+2. Select **New role**.
+3. Enter a **Name** for the role (e.g., "Recruiter", "Training Officer").
+4. Configure permissions in each tab:
+   - **Resources** — Data access permissions
+   - **Pages** — Page access permissions
+   - **Widgets** — Widget visibility permissions
+5. Select **Create**.
+
+### Permission Selection
+
+When creating or editing a role, permissions are organized by category. For each resource, you can:
+
+- **Select All** — Grant all permissions for that resource
+- **Select Individual** — Choose specific permissions (view, create, update, etc.)
+
+> **Tip:** Start with minimal permissions and add more as needed. It's easier to grant additional access than to revoke it.
+
+## Example Roles
+
+Here are common role configurations:
+
+### Recruiter
+
+A role for users who process new applications:
+
+**Resources:**
+- Users: `view_any`, `view`, `create`, `update`
+- Submissions: `view_any`, `view`, `update`, `delete`
+- Forms: `view_any`, `view`
+
+**Pages:**
+- Forms: `view`
+
+### Training Officer
+
+A role for users who manage training records:
+
+**Resources:**
+- Users: `view_any`, `view`
+- Training Records: `view_any`, `view`, `create`, `update`, `delete`
+- Qualifications: `view_any`, `view`, `create`, `update`
+- Qualification Records: `view_any`, `view`, `create`, `update`, `delete`
+
+### Read-Only Member
+
+A basic role for members who can only view information:
+
+**Resources:**
+- Users: `view_any`, `view`
+- Ranks: `view_any`, `view`
+- Units: `view_any`, `view`
+- Positions: `view_any`, `view`
+- Awards: `view_any`, `view`
+- Announcements: `view_any`, `view`
+
+**Pages:**
+- Roster: `view`
+- Calendar: `view`
+
+## Assign Roles To Users
+
+### Assign During User Creation
+
+1. Navigate to **Users** and select **New user**.
+2. In the user form, select the **Roles** to assign.
+3. Complete the form and select **Create**.
+
+### Assign To Existing Users
+
+1. Navigate to **Users** and select a user.
+2. Select **Edit**.
+3. Select the **Roles** tab.
+4. Select **Add role** to attach roles to the user.
+5. Select **Save**.
+
+### Remove Roles
+
+1. Navigate to the user's profile and select **Edit**.
+2. Select the **Roles** tab.
+3. Select the delete icon next to the role to remove it.
+4. Select **Save**.
+
+## Configure Default Roles
+
+Set roles that are automatically assigned to new users:
+
+1. Navigate to **Settings** > **Users** > **Permissions**.
+2. In the **Defaults** tab, select the **Role(s)** to assign to new users.
+3. Optionally, select individual **Permission(s)** to grant directly.
+4. Select **Save**.
+
+> **Note:** Default roles apply to users created through registration or the dashboard. API-created users may need roles assigned separately.
+
+## Permission Inheritance
+
+Users inherit all permissions from their assigned roles:
+
+- A user with **Role A** (10 permissions) and **Role B** (5 permissions) has all 15 permissions
+- Permissions are additive — there's no way to "deny" a permission
+- The Admin role automatically includes all permissions
+
+## Settings Access
+
+Access to settings pages requires specific permissions:
+
+| Settings Section | Required Permission |
+|------------------|---------------------|
+| Dashboard Settings | `view_settings_dashboard` |
+| Registration Settings | `view_settings_registration` |
+| Organization Settings | `view_settings_organization` |
+| Permission Settings | Admin role only |
+| Role Management | `view_any_role`, `view_role` |
+
+## Resource Permissions Reference
+
+<Tabs>
+  <Tab title="Personnel">
+    | Resource | Permissions |
+    |----------|-------------|
+    | Users | `view_any_user`, `view_user`, `create_user`, `update_user`, `delete_user` |
+    | Assignment Records | `view_any_assignment_record`, `view_assignment_record`, `create_assignment_record`, `update_assignment_record`, `delete_assignment_record` |
+    | Award Records | `view_any_award_record`, `view_award_record`, `create_award_record`, `update_award_record`, `delete_award_record` |
+    | Rank Records | `view_any_rank_record`, `view_rank_record`, `create_rank_record`, `update_rank_record`, `delete_rank_record` |
+    | Service Records | `view_any_service_record`, `view_service_record`, `create_service_record`, `update_service_record`, `delete_service_record` |
+    | Training Records | `view_any_training_record`, `view_training_record`, `create_training_record`, `update_training_record`, `delete_training_record` |
+    | Combat Records | `view_any_combat_record`, `view_combat_record`, `create_combat_record`, `update_combat_record`, `delete_combat_record` |
+    | Qualification Records | `view_any_qualification_record`, `view_qualification_record`, `create_qualification_record`, `update_qualification_record`, `delete_qualification_record` |
+  </Tab>
+
+  <Tab title="Organization">
+    | Resource | Permissions |
+    |----------|-------------|
+    | Groups | `view_any_group`, `view_group`, `create_group`, `update_group`, `delete_group` |
+    | Units | `view_any_unit`, `view_unit`, `create_unit`, `update_unit`, `delete_unit` |
+    | Positions | `view_any_position`, `view_position`, `create_position`, `update_position`, `delete_position` |
+    | Ranks | `view_any_rank`, `view_rank`, `create_rank`, `update_rank`, `delete_rank` |
+    | Specialties | `view_any_specialty`, `view_specialty`, `create_specialty`, `update_specialty`, `delete_specialty` |
+    | Statuses | `view_any_status`, `view_status`, `create_status`, `update_status`, `delete_status` |
+    | Slots | `view_any_slot`, `view_slot`, `create_slot`, `update_slot`, `delete_slot` |
+  </Tab>
+
+  <Tab title="Content">
+    | Resource | Permissions |
+    |----------|-------------|
+    | Announcements | `view_any_announcement`, `view_announcement`, `create_announcement`, `update_announcement`, `delete_announcement` |
+    | Documents | `view_any_document`, `view_document`, `create_document`, `update_document`, `delete_document` |
+    | Forms | `view_any_form`, `view_form`, `create_form`, `update_form`, `delete_form` |
+    | Submissions | `view_any_submission`, `view_submission`, `create_submission`, `update_submission`, `delete_submission` |
+    | Awards | `view_any_award`, `view_award`, `create_award`, `update_award`, `delete_award` |
+    | Qualifications | `view_any_qualification`, `view_qualification`, `create_qualification`, `update_qualification`, `delete_qualification` |
+  </Tab>
+
+  <Tab title="Calendars">
+    | Resource | Permissions |
+    |----------|-------------|
+    | Calendars | `view_any_calendar`, `view_calendar`, `create_calendar`, `update_calendar`, `delete_calendar` |
+    | Events | `view_any_event`, `view_event`, `create_event`, `update_event`, `delete_event` |
+  </Tab>
+
+  <Tab title="System">
+    | Resource | Permissions |
+    |----------|-------------|
+    | Roles | `view_any_role`, `view_role`, `create_role`, `update_role`, `delete_role` |
+    | Categories | `view_any_category`, `view_category`, `create_category`, `update_category`, `delete_category` |
+    | Fields | `view_any_field`, `view_field`, `create_field`, `update_field`, `delete_field` |
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+### Role Design
+
+- **Use descriptive names** — "Recruiter" is better than "Role 1"
+- **Follow least privilege** — Only grant permissions users actually need
+- **Create role hierarchies** — Build roles that progressively add permissions (Member → NCO → Officer → Admin)
+- **Document your roles** — Keep notes on what each role is intended for
+
+### User Management
+
+- **Assign multiple roles** — Combine roles for users with multiple responsibilities
+- **Review periodically** — Audit user roles regularly to ensure they're still appropriate
+- **Use default roles** — Configure defaults to ensure new users have basic access
+
+### Security
+
+- **Limit Admin access** — Only trusted users should have the Admin role
+- **Separate duties** — Different people should manage users vs. manage roles when possible
+- **Audit changes** — Review the activity log for permission-related changes
+
+## Troubleshooting
+
+### User Can't Access A Feature
+
+1. Check which roles the user has assigned
+2. Verify the role includes the required permission
+3. Ensure the user has refreshed their browser after role changes
+
+### Permission Changes Not Taking Effect
+
+1. Have the user log out and log back in
+2. Clear the application cache if using Redis or file caching
+3. Verify the role was saved correctly
+
+### Can't Delete A Role
+
+- The Admin role cannot be deleted
+- Roles with users assigned cannot be deleted — remove users first
+- Ensure you have the `delete_role` permission

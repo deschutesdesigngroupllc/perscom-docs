@@ -74,14 +74,19 @@
     },
     {
       "group": "Guides",
-      "pages": [
-        "guides/introduction",
-        "guides/integrations"
-      ]
+      "pages": ["guides/introduction", "guides/integrations"]
     },
     {
       "group": "Data Management",
       "pages": ["guides/custom-fields", "guides/forms"]
+    },
+    {
+      "group": "Organization",
+      "pages": ["guides/organization-structure", "guides/roles-permissions"]
+    },
+    {
+      "group": "Self-Hosting",
+      "pages": ["guides/deployment"]
     },
     {
       "group": "Integrations",

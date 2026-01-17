@@ -1,0 +1,392 @@
+---
+title: "Deployment"
+description: "Deploy PERSCOM to your own infrastructure using Docker, Kubernetes, or Railway."
+---
+
+PERSCOM can be self-hosted on your own infrastructure. Choose from three deployment options based on your technical requirements and expertise.
+
+## Deployment Options
+
+<CardGroup cols={3}>
+  <Card title="Railway" icon="train">
+    One-click deployment with automatic scaling and managed infrastructure.
+
+    **Best for:** Quick setup, minimal DevOps experience
+  </Card>
+  <Card title="Docker" icon="docker">
+    Run locally or on any server with Docker Compose.
+
+    **Best for:** Development, small deployments, full control
+  </Card>
+  <Card title="Kubernetes" icon="dharmachakra">
+    Production-grade deployment with Helm charts.
+
+    **Best for:** Large organizations, high availability requirements
+  </Card>
+</CardGroup>
+
+## Railway (One-Click Deployment)
+
+Railway provides the fastest path to a running PERSCOM instance. It handles infrastructure, databases, and scaling automatically.
+
+### Deploy To Railway
+
+Click the button below to deploy PERSCOM to Railway:
+
+<a href="https://railway.com/deploy/perscom?referralCode=O-oe8s" target="_blank">
+  <img src="https://railway.com/button.svg" alt="Deploy on Railway" />
+</a>
+
+### What Railway Provisions
+
+Railway automatically creates and configures:
+
+- **Laravel Application** — The main PERSCOM web application
+- **Queue Worker** — Background job processing with Horizon
+- **Scheduler** — Automated tasks and cron jobs
+- **MySQL Database** — Persistent data storage
+- **Redis Cache** — Session and cache storage
+
+### Deployment Steps
+
+1. Click the **Deploy on Railway** button above.
+2. Sign in to Railway (or create an account).
+3. Authorize Railway to access the repository.
+4. Wait for the build to complete (approximately 5-10 minutes).
+5. Access your PERSCOM instance at the provided URL.
+
+Railway automatically configures all required environment variables and connects services together.
+
+### Railway Pricing
+
+Railway offers usage-based pricing:
+
+- **Hobby Plan** — $5/month, suitable for small organizations
+- **Pro Plan** — $20/month, includes team features and priority support
+
+Monitor your resource usage in the Railway dashboard to optimize costs.
+
+## Docker Compose (Local/Self-Hosted)
+
+Docker Compose is ideal for local development or deploying to a single server.
+
+### Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed
+- [Git](https://git-scm.com/) installed
+- At least 4GB of available RAM
+
+### Quick Start
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/deschutesdesigngroupllc/perscom-app.git
+   cd perscom-app
+   ```
+
+2. **Copy the environment file:**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Start the containers:**
+
+   ```bash
+   docker compose up -d
+   ```
+
+4. **Run the setup command:**
+
+   ```bash
+   docker compose exec perscom composer setup
+   ```
+
+5. **Access PERSCOM** at `http://localhost:8080`
+
+### Services
+
+Docker Compose starts the following services:
+
+| Service | Description | Port |
+|---------|-------------|------|
+| `perscom` | Main web application | 8080 |
+| `mysql` | MySQL 8.4 database | 3306 |
+| `redis` | Redis cache | 6379 |
+| `horizon` | Queue worker | — |
+| `scheduler` | Task scheduler | — |
+
+### Configuration
+
+Edit your `.env` file to customize the deployment:
+
+```bash
+# Application
+APP_NAME="My Organization"
+APP_URL=http://localhost:8080
+APP_ENV=production
+APP_DEBUG=false
+
+# Database
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=perscom
+DB_USERNAME=root
+DB_PASSWORD=your_secure_password
+
+# Cache & Sessions
+CACHE_STORE=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis
+REDIS_HOST=redis
+```
+
+### Common Commands
+
+```bash
+# Start all services
+docker compose up -d
+
+# Stop all services
+docker compose down
+
+# View logs
+docker compose logs -f
+
+# Access the application container
+docker compose exec perscom bash
+
+# Run artisan commands
+docker compose exec perscom php artisan migrate
+
+# Rebuild after code changes
+docker compose build --no-cache
+docker compose up -d
+```
+
+### Production Considerations
+
+For production Docker deployments:
+
+1. **Use the production target:**
+
+   Modify `compose.yaml` to use the `production` target instead of `development`:
+
+   ```yaml
+   services:
+     perscom:
+       build:
+         target: production
+   ```
+
+2. **Set secure passwords** for MySQL and Redis.
+
+3. **Configure a reverse proxy** (nginx, Traefik, or Caddy) for SSL termination.
+
+4. **Enable backups** for the MySQL volume.
+
+5. **Set `APP_DEBUG=false`** and `APP_ENV=production`.
+
+## Kubernetes (Helm Charts)
+
+For production environments requiring high availability and scalability, deploy PERSCOM to Kubernetes using Helm charts.
+
+### Prerequisites
+
+- Kubernetes cluster (1.24+)
+- [Helm](https://helm.sh/) (3.0+)
+- `kubectl` configured for your cluster
+- Persistent volume provisioner (for MySQL and Redis)
+
+### Add The Helm Repository
+
+```bash
+helm repo add perscom https://charts.perscom.io
+helm repo update
+```
+
+### Install PERSCOM
+
+```bash
+helm install perscom perscom/perscom \
+  --namespace perscom \
+  --create-namespace \
+  --set app.url=https://your-domain.com \
+  --set mysql.auth.rootPassword=your_secure_password \
+  --set redis.auth.password=your_redis_password
+```
+
+### Configuration Values
+
+Create a `values.yaml` file for custom configuration:
+
+```yaml
+# Application settings
+app:
+  name: "My Organization"
+  url: "https://perscom.example.com"
+  env: production
+  debug: false
+
+# Replica counts
+replicaCount:
+  web: 2
+  horizon: 1
+  scheduler: 1
+
+# Resource limits
+resources:
+  web:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  hosts:
+    - host: perscom.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: perscom-tls
+      hosts:
+        - perscom.example.com
+
+# MySQL configuration
+mysql:
+  enabled: true
+  auth:
+    rootPassword: "secure_password"
+    database: perscom
+  primary:
+    persistence:
+      size: 10Gi
+
+# Redis configuration
+redis:
+  enabled: true
+  auth:
+    password: "redis_password"
+```
+
+Install with your custom values:
+
+```bash
+helm install perscom perscom/perscom \
+  --namespace perscom \
+  --create-namespace \
+  -f values.yaml
+```
+
+### Scaling
+
+Scale the web application horizontally:
+
+```bash
+kubectl scale deployment perscom-web --replicas=3 -n perscom
+```
+
+Or configure auto-scaling:
+
+```yaml
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+```
+
+### Upgrading
+
+```bash
+helm repo update
+helm upgrade perscom perscom/perscom -n perscom -f values.yaml
+```
+
+## Environment Variables
+
+Key environment variables for all deployment methods:
+
+### Required
+
+| Variable | Description |
+|----------|-------------|
+| `APP_KEY` | Application encryption key (auto-generated during setup) |
+| `APP_URL` | Public URL of your PERSCOM instance |
+| `DB_HOST` | Database hostname |
+| `DB_DATABASE` | Database name |
+| `DB_USERNAME` | Database username |
+| `DB_PASSWORD` | Database password |
+
+### Optional Integrations
+
+| Variable | Description |
+|----------|-------------|
+| `MAIL_MAILER` | Email driver (smtp, ses, mailgun, etc.) |
+| `DISCORD_BOT_TOKEN` | Discord bot token for notifications |
+| `TWILIO_ACCOUNT_SID` | Twilio account for SMS notifications |
+| `PUSHER_APP_KEY` | Pusher credentials for real-time updates |
+| `STRIPE_KEY` | Stripe API key for billing (if applicable) |
+
+## Security Best Practices
+
+<Warning>
+  Follow these security practices for all production deployments.
+</Warning>
+
+1. **Generate strong secrets** — Use unique, random values for `APP_KEY`, database passwords, and API keys
+2. **Enable HTTPS** — Always use SSL/TLS in production
+3. **Rotate credentials** — Regularly update passwords and API keys
+4. **Restrict database access** — Only allow connections from application servers
+5. **Enable backups** — Configure automated database backups
+6. **Monitor logs** — Set up log aggregation and alerting
+7. **Keep updated** — Regularly update PERSCOM and dependencies
+
+## Troubleshooting
+
+### Application Won't Start
+
+1. Check logs: `docker compose logs perscom` or `kubectl logs -n perscom`
+2. Verify database connectivity
+3. Ensure all required environment variables are set
+4. Run migrations: `php artisan migrate`
+
+### Database Connection Errors
+
+1. Verify `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`
+2. Ensure the database service is running
+3. Check network connectivity between services
+
+### Queue Jobs Not Processing
+
+1. Verify Redis is running and accessible
+2. Check Horizon status: `php artisan horizon:status`
+3. Review Horizon logs for errors
+
+### Permission Errors
+
+1. Ensure `storage/` and `bootstrap/cache/` directories are writable
+2. For Docker, verify volume permissions match the container user
+
+## Support
+
+Need help with deployment?
+
+<CardGroup cols={2}>
+  <Card title="Community Slack" icon="slack" href="https://perscom.io/slack">
+    Get help from the PERSCOM community.
+  </Card>
+  <Card title="Documentation" icon="book" href="/docs/support">
+    Browse guides and troubleshooting resources.
+  </Card>
+</CardGroup>
