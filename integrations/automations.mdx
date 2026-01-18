@@ -70,34 +70,92 @@ Conditions use the [Symfony Expression Language](https://symfony.com/doc/current
 
 **Basic comparisons:**
 ```
-model.status == "active"
-model.rank_id > 5
-causer.id != model.id
+model["status"] == "active"
+model["rank_id"] > 5
+causer["id"] != model["id"]
 ```
 
 **Logical operators:**
 ```
-model.status == "active" and model.approved == true
-model.rank_id > 5 or model.position_id == 1
+model["status"] == "active" and model["approved"] == true
+model["rank_id"] > 5 or model["position_id"] == 1
 ```
 
 **Null checks:**
 ```
 causer != null
-model.notes != null
+model["notes"] != null
 ```
 
 ### Available Context Variables
 
 When writing conditions, you have access to these variables:
 
-| Variable | Description |
-|----------|-------------|
-| `model` | The record that triggered the event (e.g., the user or award record) |
-| `original` | The original values before the update (for update triggers) |
-| `causer` | The user who triggered the event, if available |
+| Variable | Type | Description |
+|----------|------|-------------|
+| `model` | object | The record that triggered the event (e.g., the user or award record) |
+| `model_type` | string | The fully qualified class name of the model (e.g., `App\Models\User`) |
+| `model_id` | integer | The ID of the model that triggered the event |
+| `changes` | object | An object containing changed fields with `old` and `new` values for each (update triggers only) |
+| `causer` | object | The user who triggered the event, if available |
+| `causer_id` | integer | The ID of the user who triggered the event |
+| `now` | datetime | The current date and time when the automation runs |
 
-Access nested properties using dot notation: `model.name`, `model.email`, `causer.id`.
+Access properties using array syntax: `model["name"]`, `model["email"]`, `causer["id"]`.
+
+#### The Changes Object
+
+For update triggers, the `changes` object contains only the fields that were modified. Each changed field has `old` and `new` properties:
+
+```json
+{
+  "rank_id": {
+    "old": 5,
+    "new": 6
+  },
+  "position_id": {
+    "old": 2,
+    "new": 3
+  }
+}
+```
+
+Access specific change values:
+- `changes.rank_id.old` — The previous rank ID
+- `changes.rank_id.new` — The new rank ID
+
+#### Full Context Example
+
+Here's an example of the complete context data available for a user update trigger:
+
+```json
+{
+  "model": {
+    "id": 42,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "rank_id": 6,
+    "position_id": 3,
+    "unit_id": 2,
+    "status_id": 1
+  },
+  "model_type": "App\\Models\\User",
+  "model_id": 42,
+  "changes": {
+    "rank_id": {
+      "old": 5,
+      "new": 6
+    }
+  },
+  "causer": {
+    "id": 1,
+    "name": "Admin User",
+    "email": "admin@example.com"
+  },
+  "causer_id": 1,
+  "now": "2024-01-15T14:30:00.000000Z"
+}
+```
 
 ### Built-in Functions
 
@@ -105,21 +163,21 @@ Use these functions in your condition expressions:
 
 | Function | Description | Example |
 |----------|-------------|---------|
-| `in_array(needle, haystack)` | Check if a value exists in an array | `in_array(model.status_id, [1, 2, 3])` |
-| `contains(haystack, needle)` | Check if a string contains a substring | `contains(model.email, "@example.com")` |
-| `starts_with(haystack, needle)` | Check if a string starts with a prefix | `starts_with(model.name, "Admin")` |
-| `ends_with(haystack, needle)` | Check if a string ends with a suffix | `ends_with(model.email, ".gov")` |
-| `changed(key)` | Check if a specific field was changed | `changed("rank_id")` |
-| `old_value(key)` | Get the previous value of a changed field | `old_value("rank_id")` |
-| `new_value(key)` | Get the new value of a changed field | `new_value("rank_id")` |
-| `blank(value)` | Check if a value is empty | `blank(model.notes)` |
-| `filled(value)` | Check if a value is not empty | `filled(model.discord_user_id)` |
+| `in_array(needle, haystack)` | Check if a value exists in an array | `in_array(model["status_id"], [1, 2, 3])` |
+| `contains(haystack, needle)` | Check if a string contains a substring | `contains(model["email"], "@example.com")` |
+| `starts_with(haystack, needle)` | Check if a string starts with a prefix | `starts_with(model["name"], "Admin")` |
+| `ends_with(haystack, needle)` | Check if a string ends with a suffix | `ends_with(model["email"], ".gov")` |
+| `changed(key)` | Check if a specific field was changed (checks if key exists in `changes`) | `changed("rank_id")` |
+| `old_value(key)` | Get the previous value of a changed field (shorthand for `changes.key.old`) | `old_value("rank_id")` |
+| `new_value(key)` | Get the new value of a changed field (shorthand for `changes.key.new`) | `new_value("rank_id")` |
+| `blank(value)` | Check if a value is empty | `blank(model["notes"])` |
+| `filled(value)` | Check if a value is not empty | `filled(model["discord_user_id"])` |
 
 ### Condition Examples
 
 **Run only when a user is approved:**
 ```
-model.approved == true
+model["approved"] == true
 ```
 
 **Run only when rank changes:**
@@ -134,12 +192,12 @@ changed("rank_id") and new_value("rank_id") > old_value("rank_id")
 
 **Run only for users with a specific email domain:**
 ```
-ends_with(model.email, "@agency.gov")
+ends_with(model["email"], "@agency.gov")
 ```
 
 **Run only when triggered by a specific user:**
 ```
-causer != null and causer.id == 1
+causer != null and causer["id"] == 1
 ```
 
 ### Testing Conditions
@@ -189,7 +247,19 @@ Create custom JSON payloads using Twig template syntax. Use `{{ variable }}` to 
     "name": "{{ model.name }}",
     "email": "{{ model.email }}"
   },
-  "promoted_by": "{{ causer.name }}"
+  "promoted_by": "{{ causer.name }}",
+  "timestamp": "{{ now | date('Y-m-d H:i:s') }}"
+}
+```
+
+**Example: Payload with change details**
+```json
+{
+  "event": "rank_changed",
+  "user_id": {{ model_id }},
+  "previous_rank_id": {{ changes.rank_id.old }},
+  "new_rank_id": {{ changes.rank_id.new }},
+  "changed_by": {{ causer_id }}
 }
 ```
 
@@ -209,7 +279,12 @@ Write your message content using Twig template syntax:
 ```
 {{ model.name }} has been promoted to {{ model.rank.name }}.
 
-This change was made by {{ causer.name }}.
+This change was made by {{ causer.name }} on {{ now | date('F j, Y') }}.
+```
+
+**Example with change details:**
+```
+{{ model.name }}'s rank has been updated from ID {{ changes.rank_id.old }} to ID {{ changes.rank_id.new }}.
 ```
 
 #### Recipients Expression
@@ -218,25 +293,138 @@ Define who receives the message using an expression that returns user IDs:
 
 **Send to the affected user:**
 ```
-model.id
+model["id"]
 ```
 
 **Send to the user's supervisor (for record models):**
 ```
-model.user_id
+model["user_id"]
 ```
 
 **Send to multiple users:**
 ```
-[model.id, causer.id]
+[model["id"], causer["id"]]
 ```
 
 **Conditional recipient:**
 ```
-model.supervisor_id != null ? model.supervisor_id : causer.id
+model["supervisor_id"] != null ? model["supervisor_id"] : causer["id"]
 ```
 
 If left empty, the message uses the default notification behavior.
+
+### Update Resource Action
+
+Update Resource actions modify existing records in your system based on automation triggers. This enables you to automatically update user profiles or other resources when events occur.
+
+> **Note:** Currently, only User resources are supported for updates.
+
+1. Select **Update Resource** as the action type.
+2. Select the **Target Resource** (currently Users).
+3. Choose a **Lookup Type** to identify which record to update:
+   - **Expression**: Write an expression that returns the ID of the record to update
+   - **Query**: Define field conditions to find the record
+4. Configure the **Field Updates** with the fields and values to set.
+
+#### Lookup Types
+
+**Expression Lookup**
+
+Use an expression that evaluates to the ID of the record you want to update:
+
+```
+model["id"]
+```
+
+This example updates the user who triggered the event. You can also use more complex expressions:
+
+```
+causer["id"]
+```
+
+This updates the user associated with a record (e.g., when an award record is created, update the user who received the award).
+
+**Query Lookup**
+
+Define field-value conditions to find the target record. The system finds the first record matching all conditions.
+
+| Field | Value |
+|-------|-------|
+| `email` | `{{ model.email }}` |
+| `status_id` | `1` |
+
+Query values support Twig syntax for dynamic matching.
+
+#### Field Updates
+
+Define which fields to update and their new values. Values support Twig template syntax, giving you access to all context variables plus a special `target` variable.
+
+| Field | Value |
+|-------|-------|
+| `status_id` | `2` |
+| `notes` | `Updated by automation on {{ now \| date('Y-m-d') }}` |
+| `rank_id` | `{{ target.rank_id \| increment }}` |
+
+#### The Target Variable
+
+When configuring field updates, you have access to a `target` variable containing the current data of the record being updated. This allows you to reference existing values when setting new ones.
+
+**Example: Increment a user's rank:**
+```
+{{ target.rank_id | increment }}
+```
+
+**Example: Append to existing notes:**
+```
+{{ target.notes }} - Updated on {{ now | date('Y-m-d') }}
+```
+
+**Example: Conditional value based on target data:**
+```
+{{ target.status_id == 1 ? 2 : target.status_id }}
+```
+
+#### Resource Update Examples
+
+**Update user status when a form is submitted:**
+
+- **Trigger**: Submission Created
+- **Condition**: `model["form_id"] == 5`
+- **Action**: Update Resource
+- **Lookup Type**: Expression
+- **Lookup Expression**: `model["user_id"]`
+- **Field Updates**:
+  | Field | Value |
+  |-------|-------|
+  | `status_id` | `2` |
+
+**Promote a user when they receive a specific award:**
+
+- **Trigger**: Award Record Created
+- **Condition**: `model["award_id"] == 10`
+- **Action**: Update Resource
+- **Lookup Type**: Expression
+- **Lookup Expression**: `model["user_id"]`
+- **Field Updates**:
+  | Field | Value |
+  |-------|-------|
+  | `rank_id` | `{{ target.rank_id \| increment }}` |
+
+**Update user profile based on external data:**
+
+- **Trigger**: User Updated
+- **Condition**: `changed("external_id") and filled(model["external_id"])`
+- **Action**: Update Resource
+- **Lookup Type**: Query
+- **Query Conditions**:
+  | Field | Value |
+  |-------|-------|
+  | `id` | `{{ model.id }}` |
+- **Field Updates**:
+  | Field | Value |
+  |-------|-------|
+  | `verified` | `true` |
+  | `verified_at` | `{{ now \| date('Y-m-d H:i:s') }}` |
 
 ## Twig Filters
 
@@ -246,22 +434,26 @@ Use Twig filters to transform values in your templates. Apply filters using the 
 |--------|-------------|---------|
 | `capitalize` | Capitalize the first character | `{{ model.name \| capitalize }}` |
 | `date` | Format a date | `{{ model.created_at \| date("Y-m-d") }}` |
+| `decrement(n)` | Subtract from a number (default: 1) | `{{ model.rank_id \| decrement(2) }}` |
 | `default` | Provide a fallback value | `{{ model.nickname \| default("N/A") }}` |
 | `escape` | Escape HTML entities | `{{ model.notes \| escape }}` |
 | `first` | Get the first array element | `{{ model.tags \| first }}` |
+| `increment(n)` | Add to a number (default: 1) | `{{ model.rank_id \| increment(5) }}` |
 | `join` | Join array elements | `{{ model.tags \| join(", ") }}` |
+| `json_encode` | Encode value as JSON | `{{ model \| json_encode }}` |
 | `last` | Get the last array element | `{{ model.tags \| last }}` |
 | `length` | Get string or array length | `{{ model.name \| length }}` |
 | `lower` | Convert to lowercase | `{{ model.name \| lower }}` |
-| `upper` | Convert to uppercase | `{{ model.name \| upper }}` |
+| `nl2br` | Convert newlines to HTML breaks | `{{ model.notes \| nl2br }}` |
+| `raw` | Output without escaping | `{{ model.html_content \| raw }}` |
+| `replace` | Replace text | `{{ model.text \| replace({"foo": "bar"}) }}` |
+| `round` | Round a number | `{{ model.score \| round }}` |
+| `slice` | Extract a portion | `{{ model.notes \| slice(0, 100) }}` |
+| `split` | Split string into array | `{{ model.tags_string \| split(",") }}` |
+| `striptags` | Remove HTML tags | `{{ model.description \| striptags }}` |
 | `title` | Convert to title case | `{{ model.name \| title }}` |
 | `trim` | Remove surrounding whitespace | `{{ model.notes \| trim }}` |
-| `striptags` | Remove HTML tags | `{{ model.description \| striptags }}` |
-| `slice` | Extract a portion | `{{ model.notes \| slice(0, 100) }}` |
-| `replace` | Replace text | `{{ model.text \| replace({"foo": "bar"}) }}` |
-| `nl2br` | Convert newlines to HTML breaks | `{{ model.notes \| nl2br }}` |
-| `round` | Round a number | `{{ model.score \| round }}` |
-| `split` | Split string into array | `{{ model.tags_string \| split(",") }}` |
+| `upper` | Convert to uppercase | `{{ model.name \| upper }}` |
 
 ## View Automation Logs
 
@@ -327,10 +519,10 @@ Disabled automations do not run. Verify the **Enabled** toggle is active on the 
 
 ### Verify Field Paths
 
-Field paths are case-sensitive. Use **View Fields** to see the exact structure of the context data, including:
+Field paths are case-sensitive and must use array syntax in expressions. Use **View Fields** to see the exact structure of the context data, including:
 
-- Property names (e.g., `model.name`, not `model.Name`)
-- Nested relationships (e.g., `model.user.email`)
+- Property names (e.g., `model["name"]`, not `model["Name"]`)
+- Nested relationships (e.g., `model["user"]["email"]`)
 - Available fields for the selected trigger type
 
 ### Common Issues
